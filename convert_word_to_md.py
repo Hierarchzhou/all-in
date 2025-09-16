@@ -47,7 +47,8 @@ def extract_date_from_filename(filename):
     match = re.search(date_pattern, filename)
     if match:
         return f"{match.group(1)}-{match.group(2)}-{match.group(3)}"
-    return datetime.now().strftime("%Y-%m-%d")
+    # 如果没有日期，返回标记
+    return "待补充日期"
 
 def convert_word_to_markdown(input_dir, output_dir):
     """批量转换Word文档为Markdown"""
