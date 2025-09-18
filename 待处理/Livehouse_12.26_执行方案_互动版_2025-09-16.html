@@ -1,0 +1,1996 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livehouse 12.26 执行方案 - 交互版</title>
+
+    <!-- 字体 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            /* Livehouse主题色彩 - 月光系列 */
+            --primary-color: #6366f1;        /* 深紫色 - 夜空色 */
+            --primary-dark: #4f46e5;         /* 更深的紫色 */
+            --primary-light: #a5b4fc;        /* 浅紫色 - 月光色 */
+            --secondary-color: #8b5cf6;      /* 紫罗兰色 */
+            --accent-color: #c084fc;         /* 浅紫色强调色 */
+            --gold-color: #fbbf24;           /* 金色 - 月光色 */
+            --text-primary: #1e1b4b;         /* 深蓝紫色 */
+            --text-secondary: #64748b;       /* 灰蓝色 */
+            --bg-primary: #ffffff;           /* 白色背景 */
+            --bg-secondary: #f8fafc;         /* 浅灰背景 */
+            --bg-accent: #f1f5f9;           /* 紫色渐变背景 */
+            --border-color: #e2e8f0;         /* 边框色 */
+            --shadow-sm: 0 2px 4px rgba(99,102,241,0.1);
+            --shadow-md: 0 4px 8px rgba(99,102,241,0.15);
+            --shadow-lg: 0 8px 16px rgba(99,102,241,0.2);
+            --sidebar-width: 320px;
+        }
+
+        /* 深色模式 - 夜空主题 */
+        [data-theme="dark"] {
+            --primary-color: #a5b4fc;
+            --primary-dark: #8b5cf6;
+            --primary-light: #c084fc;
+            --secondary-color: #8b5cf6;
+            --accent-color: #fbbf24;
+            --gold-color: #f59e0b;
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --bg-primary: #0f0f23;          /* 深夜蓝 */
+            --bg-secondary: #1e1b4b;        /* 夜空紫 */
+            --bg-accent: #312e81;           /* 深紫色 */
+            --border-color: #475569;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.3);
+            --shadow-md: 0 4px 8px rgba(0,0,0,0.4);
+            --shadow-lg: 0 8px 16px rgba(0,0,0,0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            line-height: 1.8;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            transition: all 0.3s ease;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* 星空背景效果 */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(2px 2px at 20px 30px, var(--accent-color), transparent),
+                radial-gradient(2px 2px at 40px 70px, var(--primary-light), transparent),
+                radial-gradient(1px 1px at 90px 40px, var(--gold-color), transparent),
+                radial-gradient(1px 1px at 130px 80px, var(--primary-color), transparent),
+                radial-gradient(2px 2px at 160px 30px, var(--accent-color), transparent);
+            background-repeat: repeat;
+            background-size: 200px 100px;
+            opacity: 0.1;
+            z-index: -1;
+            animation: starfield 20s linear infinite;
+        }
+
+        @keyframes starfield {
+            from { transform: translateY(0); }
+            to { transform: translateY(-100px); }
+        }
+
+        /* 加载动画 - 月亮主题 */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            transition: opacity 0.5s;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-content {
+            text-align: center;
+        }
+
+        .moon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--gold-color) 0%, var(--accent-color) 100%);
+            border-radius: 50%;
+            position: relative;
+            animation: moonGlow 2s ease-in-out infinite alternate;
+            margin: 0 auto 20px;
+        }
+
+        .moon::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 120%;
+            height: 120%;
+            background: radial-gradient(circle, var(--primary-light) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.6;
+            animation: moonHalo 3s linear infinite;
+        }
+
+        @keyframes moonGlow {
+            0% { box-shadow: 0 0 20px var(--gold-color); }
+            100% { box-shadow: 0 0 40px var(--primary-color), 0 0 60px var(--accent-color); }
+        }
+
+        @keyframes moonHalo {
+            0% { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
+            100% { transform: translate(-50%, -50%) rotate(360deg) scale(1.1); }
+        }
+
+        .loader-text {
+            color: var(--primary-color);
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* 顶部导航栏 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            padding: 0 30px;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] .navbar {
+            background: rgba(15, 15, 35, 0.95);
+        }
+
+        .navbar.scrolled {
+            box-shadow: var(--shadow-md);
+            height: 60px;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            margin-left: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navbar-brand::before {
+            content: '🌙';
+            font-size: 28px;
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .navbar-subtitle {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-left: 10px;
+        }
+
+        .navbar-actions {
+            margin-left: auto;
+            display: flex;
+            gap: 15px;
+        }
+
+        .navbar-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 18px;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 12px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .navbar-btn:hover {
+            background: var(--bg-accent);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .navbar-btn:active {
+            transform: translateY(0);
+        }
+
+        /* 侧边栏 */
+        .sidebar {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: var(--sidebar-width);
+            height: calc(100vh - 70px);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-right: 1px solid var(--border-color);
+            overflow-y: auto;
+            padding: 30px 20px;
+            transform: translateX(0);
+            transition: transform 0.3s ease;
+            z-index: 999;
+        }
+
+        [data-theme="dark"] .sidebar {
+            background: rgba(30, 27, 75, 0.95);
+        }
+
+        .sidebar.collapsed {
+            transform: translateX(-100%);
+        }
+
+        .sidebar-toggle {
+            position: fixed;
+            top: 85px;
+            left: 15px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            box-shadow: var(--shadow-lg);
+            z-index: 998;
+            transition: all 0.3s;
+        }
+
+        .sidebar-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(99,102,241,0.3);
+        }
+
+        .sidebar-toggle.active {
+            left: calc(var(--sidebar-width) - 25px);
+        }
+
+        /* 目录样式 */
+        .toc-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .toc-title::before {
+            content: '📋';
+            font-size: 20px;
+        }
+
+        .toc-list {
+            list-style: none;
+        }
+
+        .toc-item {
+            margin: 8px 0;
+        }
+
+        .toc-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 12px 15px;
+            display: block;
+            border-radius: 12px;
+            transition: all 0.3s;
+            font-size: 14px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .toc-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, var(--primary-light), transparent);
+            transition: left 0.6s;
+        }
+
+        .toc-link:hover {
+            background: var(--bg-accent);
+            color: var(--primary-color);
+            padding-left: 25px;
+            transform: translateX(5px);
+        }
+
+        .toc-link:hover::before {
+            left: 100%;
+        }
+
+        .toc-link.active {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            font-weight: 500;
+        }
+
+        .toc-list .toc-list {
+            margin-left: 20px;
+            border-left: 2px solid var(--primary-light);
+            padding-left: 10px;
+        }
+
+        .toc-list .toc-list .toc-link {
+            font-size: 13px;
+            padding: 8px 12px;
+        }
+
+        /* 主内容区 */
+        .main-container {
+            margin-left: var(--sidebar-width);
+            margin-top: 70px;
+            padding: 50px 40px;
+            max-width: 1200px;
+            transition: margin-left 0.3s ease;
+            position: relative;
+        }
+
+        .main-container.full-width {
+            margin-left: 0;
+        }
+
+        /* 内容样式 */
+        h1 {
+            color: var(--primary-color);
+            font-size: 48px;
+            margin-bottom: 20px;
+            padding-bottom: 25px;
+            border-bottom: 3px solid var(--gold-color);
+            animation: fadeInUp 0.8s ease;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h1 + h2 {
+            color: var(--text-secondary);
+            font-size: 20px;
+            font-weight: 400;
+            margin-top: -10px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        h2 {
+            color: var(--primary-dark);
+            font-size: 32px;
+            margin-top: 50px;
+            margin-bottom: 25px;
+            padding: 20px 0 20px 25px;
+            border-left: 5px solid var(--gold-color);
+            background: linear-gradient(90deg, rgba(99,102,241,0.05) 0%, transparent 100%);
+            border-radius: 0 15px 15px 0;
+            scroll-margin-top: 100px;
+            animation: fadeInLeft 0.6s ease;
+            position: relative;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--gold-color), var(--primary-color));
+            border-radius: 3px;
+        }
+
+        h3 {
+            color: var(--primary-dark);
+            font-size: 24px;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            scroll-margin-top: 100px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3::before {
+            content: '▶';
+            color: var(--gold-color);
+            font-size: 16px;
+        }
+
+        h4 {
+            color: var(--text-primary);
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        /* 段落和文本 */
+        p {
+            margin: 20px 0;
+            text-align: justify;
+            line-height: 1.8;
+        }
+
+        strong {
+            color: var(--primary-dark);
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--primary-light), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        em {
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        /* 链接 */
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--primary-color);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+            border-bottom-style: solid;
+            text-shadow: 0 0 8px var(--primary-light);
+        }
+
+        /* 列表 */
+        ul, ol {
+            margin: 25px 0;
+            padding-left: 35px;
+        }
+
+        li {
+            margin: 15px 0;
+            position: relative;
+        }
+
+        ul li::marker {
+            color: var(--gold-color);
+        }
+
+        /* 引用块 */
+        blockquote {
+            background: linear-gradient(135deg, var(--bg-accent) 0%, rgba(99,102,241,0.05) 100%);
+            border-left: 5px solid var(--primary-color);
+            margin: 30px 0;
+            padding: 25px 30px;
+            border-radius: 0 15px 15px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        blockquote::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            font-size: 100px;
+            color: var(--primary-light);
+            opacity: 0.2;
+            font-family: serif;
+        }
+
+        blockquote::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, var(--primary-light));
+            opacity: 0.1;
+        }
+
+        /* 表格 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: var(--bg-primary);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+        }
+
+        th {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 20px;
+            text-align: left;
+            font-weight: 500;
+            font-size: 16px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        td {
+            padding: 18px 20px;
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        tr:hover td {
+            background: var(--bg-accent);
+            transform: scale(1.01);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* 代码块 */
+        code {
+            background: var(--bg-accent);
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            color: var(--primary-dark);
+            font-size: 0.9em;
+            border: 1px solid var(--border-color);
+        }
+
+        pre {
+            background: var(--bg-secondary);
+            padding: 25px;
+            border-radius: 15px;
+            overflow-x: auto;
+            margin: 25px 0;
+            border: 1px solid var(--border-color);
+            position: relative;
+            box-shadow: var(--shadow-sm);
+        }
+
+        pre code {
+            background: transparent;
+            padding: 0;
+            color: var(--text-primary);
+            border: none;
+        }
+
+        /* 任务列表 */
+        .task-list-item {
+            list-style: none;
+            margin: 15px 0;
+            position: relative;
+            padding-left: 35px;
+        }
+
+        .task-list-item input[type="checkbox"] {
+            position: absolute;
+            left: 0;
+            top: 5px;
+            transform: scale(1.2);
+            accent-color: var(--primary-color);
+        }
+
+        .task-list-item input[type="checkbox"]:checked + label {
+            text-decoration: line-through;
+            color: var(--text-secondary);
+        }
+
+        /* 复制按钮 */
+        .code-copy-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 12px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        pre:hover .code-copy-btn {
+            opacity: 1;
+        }
+
+        .code-copy-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* 分割线 */
+        hr {
+            border: none;
+            height: 3px;
+            background: linear-gradient(to right, transparent, var(--gold-color), var(--primary-color), var(--gold-color), transparent);
+            margin: 50px 0;
+            border-radius: 3px;
+        }
+
+        /* 进度条 */
+        .progress-bar {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold-color), var(--primary-color), var(--secondary-color));
+            z-index: 1001;
+            transition: width 0.3s ease;
+        }
+
+        /* 返回顶部按钮 */
+        .back-to-top {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 24px;
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s;
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 12px 25px rgba(99,102,241,0.4);
+        }
+
+        /* 搜索框 */
+        .search-container {
+            position: fixed;
+            top: 80px;
+            right: 30px;
+            width: 350px;
+            z-index: 999;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s;
+        }
+
+        .search-container.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 25px;
+            border: 2px solid var(--primary-color);
+            border-radius: 30px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--text-primary);
+            outline: none;
+            backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-md);
+        }
+
+        [data-theme="dark"] .search-input {
+            background: rgba(30, 27, 75, 0.95);
+        }
+
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            margin-top: 10px;
+            max-height: 400px;
+            overflow-y: auto;
+            box-shadow: var(--shadow-lg);
+        }
+
+        [data-theme="dark"] .search-results {
+            background: rgba(30, 27, 75, 0.95);
+        }
+
+        .search-result-item {
+            padding: 15px 25px;
+            cursor: pointer;
+            transition: background 0.3s;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+
+        .search-result-item:hover {
+            background: var(--bg-accent);
+        }
+
+        /* 动画 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1024px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .sidebar-toggle {
+                display: flex;
+            }
+
+            .main-container {
+                margin-left: 0;
+                padding: 40px 25px;
+            }
+
+            .navbar-brand {
+                margin-left: 70px;
+            }
+
+            .search-container {
+                width: 300px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            h3 {
+                font-size: 22px;
+            }
+
+            .main-container {
+                padding: 30px 20px;
+            }
+
+            .navbar {
+                padding: 0 20px;
+            }
+
+            .navbar-brand {
+                font-size: 20px;
+                margin-left: 60px;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            th, td {
+                padding: 12px 15px;
+            }
+
+            .search-container {
+                width: calc(100% - 40px);
+                right: 20px;
+            }
+        }
+
+        /* 打印样式 */
+        @media print {
+            .navbar, .sidebar, .sidebar-toggle, .back-to-top, .search-container, .progress-bar {
+                display: none !important;
+            }
+
+            .main-container {
+                margin: 0 !important;
+                padding: 20px !important;
+            }
+
+            body {
+                font-size: 12pt;
+                background: white !important;
+            }
+
+            body::before {
+                display: none !important;
+            }
+
+            h1, h2, h3, h4 {
+                page-break-after: avoid;
+            }
+
+            table, blockquote, pre {
+                page-break-inside: avoid;
+            }
+        }
+
+        /* 特殊效果 */
+        .highlight-card {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- 加载动画 -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="moon"></div>
+            <div class="loader-text">加载中...</div>
+        </div>
+    </div>
+
+    <!-- 进度条 -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- 顶部导航 -->
+    <nav class="navbar" id="navbar">
+        <a href="#" class="navbar-brand">
+            Livehouse 12.26
+            <span class="navbar-subtitle">执行方案</span>
+        </a>
+        <div class="navbar-actions">
+            <button class="navbar-btn" id="searchBtn" title="搜索">
+                <i class="fas fa-search"></i>
+            </button>
+            <button class="navbar-btn" id="themeBtn" title="切换主题">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="navbar-btn" id="printBtn" title="打印">
+                <i class="fas fa-print"></i>
+            </button>
+            <button class="navbar-btn" id="downloadBtn" title="下载">
+                <i class="fas fa-download"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 搜索框 -->
+    <div class="search-container" id="searchContainer">
+        <input type="text" class="search-input" placeholder="搜索方案内容..." id="searchInput">
+        <div class="search-results" id="searchResults"></div>
+    </div>
+
+    <!-- 侧边栏切换按钮 -->
+    <button class="sidebar-toggle" id="sidebarToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- 侧边栏 -->
+    <aside class="sidebar" id="sidebar">
+        <div class="toc-title">项目导航</div>
+        <nav class="toc-nav" id="tocNav"></nav>
+    </aside>
+
+    <!-- 主内容 -->
+    <main class="main-container" id="mainContent">
+        <h1 id="livehouse-1226-执行方案">Livehouse 12.26 执行方案</h1>
+
+<h2 id="基于周子轩会议93及所有相关录音整理的完整执行方案">基于周子轩会议（9.3）及所有相关录音整理的完整执行方案</h2>
+
+<p><strong>项目负责人</strong>：周子轩<br />
+<strong>创建日期</strong>：2025年9月16日<br />
+<strong>方案版本</strong>：V1.0<br />
+<strong>执行状态</strong>：待启动</p>
+
+<hr />
+
+<h2 id="执行摘要">执行摘要</h2>
+
+<p>本方案是基于周子轩9月3日会议及所有相关录音整理的完整执行方案，旨在打造2025年12月26日的Livehouse演出活动。项目预计投入11万元，目标收入50万元（满场），通过创新的积分体系、NFT数字化方案和三层票价策略，打造深圳最具影响力的青年音乐现场品牌。</p>
+
+<p><strong>核心亮点</strong>：<br />
+- 🎵 月亮主题的哲学内核："只有现在，没有过去和未来"<br />
+- 🎫 创新积分体系与专属物料设计<br />
+- 💎 NFT数字会员卡概念，降低用户认知门槛<br />
+- 🤝 社群共创模式，用户深度参与全过程</p>
+
+<hr />
+
+<h2 id="第一部分项目概览">第一部分：项目概览</h2>
+
+<h3 id="11-核心信息速览">1.1 核心信息速览</h3>
+
+<table>
+<thead>
+<tr>
+  <th>项目要素</th>
+  <th>详细信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>演出日期</strong></td>
+  <td>2025年12月26日</td>
+</tr>
+<tr>
+  <td><strong>准备周期</strong></td>
+  <td>3个月（现在-12.26）</td>
+</tr>
+<tr>
+  <td><strong>场地规模</strong></td>
+  <td>1200人</td>
+</tr>
+<tr>
+  <td><strong>活动形式</strong></td>
+  <td>Livehouse + AfterParty（50-100人）</td>
+</tr>
+<tr>
+  <td><strong>预期收入</strong></td>
+  <td>50万元（满场）</td>
+</tr>
+<tr>
+  <td><strong>预估成本</strong></td>
+  <td>11万元</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="12-核心团队架构">1.2 核心团队架构</h3>
+
+<table>
+<thead>
+<tr>
+  <th>团队成员</th>
+  <th>股份占比</th>
+  <th>主要职责</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>周子轩</strong></td>
+  <td>25%</td>
+  <td>总负责人 &amp; 项目统筹</td>
+</tr>
+<tr>
+  <td><strong>太阳</strong></td>
+  <td>20%</td>
+  <td>流量运营 &amp; 直播带票</td>
+</tr>
+<tr>
+  <td><strong>爱乐（Ella）</strong></td>
+  <td>未明确%</td>
+  <td>品牌创始人 &amp; 主唱</td>
+</tr>
+<tr>
+  <td><strong>未来</strong></td>
+  <td>10%</td>
+  <td>运营执行</td>
+</tr>
+<tr>
+  <td><strong>支持团队</strong></td>
+  <td>10%</td>
+  <td>技术、设计、市场</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h2 id="第二部分票务体系设计">第二部分：票务体系设计</h2>
+
+<h3 id="21-三层票价策略">2.1 三层票价策略</h3>
+
+<table>
+<thead>
+<tr>
+  <th>票型等级</th>
+  <th>售价</th>
+  <th>数量</th>
+  <th>积分</th>
+  <th>专属权益</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>普通票</strong></td>
+  <td>¥399</td>
+  <td>800张</td>
+  <td>1分</td>
+  <td>入场权 + 基础物料兑换</td>
+</tr>
+<tr>
+  <td><strong>VIP票</strong></td>
+  <td>¥699</td>
+  <td>200张</td>
+  <td>2分</td>
+  <td>VIP专区 + 更多物料选择</td>
+</tr>
+<tr>
+  <td><strong>至尊票</strong></td>
+  <td>¥999</td>
+  <td>200张</td>
+  <td>3分</td>
+  <td>全部权益 + AfterParty + 月相纪念盘</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="22-成本预算明细">2.2 成本预算明细</h3>
+
+<table>
+<thead>
+<tr>
+  <th>支出项目</th>
+  <th>预算金额</th>
+  <th>备注说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>场地租赁</strong></td>
+  <td>¥25,000</td>
+  <td>基础租金</td>
+</tr>
+<tr>
+  <td><strong>安保服务</strong></td>
+  <td>¥4,800</td>
+  <td>必需合规</td>
+</tr>
+<tr>
+  <td><strong>报批手续</strong></td>
+  <td>¥1,000</td>
+  <td>合规要求</td>
+</tr>
+<tr>
+  <td><strong>LED大屏</strong></td>
+  <td>¥2,000</td>
+  <td>视觉效果</td>
+</tr>
+<tr>
+  <td><strong>VIP包场</strong></td>
+  <td>¥12,000</td>
+  <td>150人二楼</td>
+</tr>
+<tr>
+  <td><strong>艺人费用</strong></td>
+  <td>¥20,000</td>
+  <td>预估费用</td>
+</tr>
+<tr>
+  <td><strong>周边物料</strong></td>
+  <td>¥30,000</td>
+  <td>制作成本</td>
+</tr>
+<tr>
+  <td><strong>营销推广</strong></td>
+  <td>¥15,000</td>
+  <td>宣传投放</td>
+</tr>
+<tr>
+  <td><strong>总计</strong></td>
+  <td><strong>¥110,000</strong></td>
+  <td>预估成本</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="23-收入预期分析">2.3 收入预期分析</h3>
+
+<pre><code>满场收入计算：
+- 普通票：399 × 800 = ¥319,200
+- VIP票：699 × 200 = ¥139,800
+- 至尊票：999 × 200 = ¥199,800
+- 总计：¥658,800
+
+预期毛利率：83.3%
+净利润：¥548,800（满场情况下）
+</code></pre>
+
+<hr />
+
+<h2 id="第三部分积分与物料系统">第三部分：积分与物料系统</h2>
+
+<h3 id="31-月光值体系社群贡献积分">3.1 月光值体系（社群贡献积分）</h3>
+
+<h4 id="获取方式">获取方式</h4>
+
+<ul>
+<li><strong>每日签到</strong>：+1月光值</li>
+<li><strong>发布作品</strong>：+3月光值</li>
+<li><strong>共创作品</strong>：+6月光值（2人）/ +9月光值（3人）</li>
+<li><strong>精选作品</strong>：+30月光值</li>
+</ul>
+
+<h4 id="兑换规则">兑换规则</h4>
+
+<p><strong>100月光值 = 1积分</strong>（可兑换物料或参与抽奖）</p>
+
+<h3 id="32-专属物料清单">3.2 专属物料清单</h3>
+
+<table>
+<thead>
+<tr>
+  <th>积分等级</th>
+  <th>兑换物品</th>
+  <th>制作成本</th>
+  <th>限量数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>1分</strong></td>
+  <td>925银月亮项链</td>
+  <td>¥35</td>
+  <td>600个</td>
+</tr>
+<tr>
+  <td><strong>1分</strong></td>
+  <td>纪念T恤</td>
+  <td>¥70</td>
+  <td>300个</td>
+</tr>
+<tr>
+  <td><strong>2分</strong></td>
+  <td>限定充电宝</td>
+  <td>¥140</td>
+  <td>200个</td>
+</tr>
+<tr>
+  <td><strong>3分</strong></td>
+  <td>月相纪念盘相框</td>
+  <td>¥200</td>
+  <td>100个</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="33-特别设计月相纪念盘">3.3 特别设计：月相纪念盘</h3>
+
+<p><strong>设计特色</strong>：<br />
+- 🌙 刻印12.26当晚真实月相<br />
+- ✍️ 包含全体艺人亲笔签名<br />
+- 📷 现场大合影高清照片<br />
+- 🎨 设计师署名限量版<br />
+- 📦 顺丰快递直送到家（寻求赞助）</p>
+
+<hr />
+
+<h2 id="第四部分艺人阵容规划">第四部分：艺人阵容规划</h2>
+
+<h3 id="41-确定阵容">4.1 确定阵容</h3>
+
+<h4 id="太阳">太阳</h4>
+
+<ul>
+<li><strong>流量贡献</strong>：自带300-500人流量</li>
+<li><strong>核心作用</strong>：直播带票主力</li>
+<li><strong>合作模式</strong>：核心合伙人</li>
+</ul>
+
+<h4 id="朋友乐队">朋友乐队</h4>
+
+<ul>
+<li><strong>合作性质</strong>：友情演出</li>
+<li><strong>成本优势</strong>：零成本高质量</li>
+<li><strong>价值评估</strong>：可靠的演出质量保障</li>
+</ul>
+
+<h4 id="国际高中生乐队">国际高中生乐队</h4>
+
+<ul>
+<li><strong>目标群体</strong>：年轻群体引流</li>
+<li><strong>市场价值</strong>：校园影响力</li>
+<li><strong>战略意义</strong>：扩大受众基础</li>
+</ul>
+
+<h3 id="42-战略合作伙伴">4.2 战略合作伙伴</h3>
+
+<table>
+<thead>
+<tr>
+  <th>合作伙伴</th>
+  <th>合作内容</th>
+  <th>预期价值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>交互式舞美团队</strong></td>
+  <td>沉浸式视觉体验</td>
+  <td>提升现场体验质量</td>
+</tr>
+<tr>
+  <td><strong>未来换电站</strong></td>
+  <td>充电宝独家赞助</td>
+  <td>物料成本节约</td>
+</tr>
+<tr>
+  <td><strong>顺丰快递</strong></td>
+  <td>物流服务支持</td>
+  <td>降低配送成本</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h2 id="第五部分nft数字化方案">第五部分：NFT数字化方案</h2>
+
+<h3 id="51-核心理念">5.1 核心理念</h3>
+
+<blockquote>
+  <p><strong>"不是卖NFT，是卖数字会员卡"</strong></p>
+</blockquote>
+
+<p><strong>策略要点</strong>：<br />
+- 降低用户认知门槛<br />
+- 强调实用价值而非投机属性<br />
+- 以会员权益为核心卖点</p>
+
+<h3 id="52-技术架构">5.2 技术架构</h3>
+
+<table>
+<thead>
+<tr>
+  <th>技术要素</th>
+  <th>解决方案</th>
+  <th>预算</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>区块链平台</strong></td>
+  <td>Polygon（低成本高效率）</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td><strong>支付方式</strong></td>
+  <td>微信支付（技术包装）</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td><strong>产品形态</strong></td>
+  <td>数字门票+永久收藏品</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td><strong>开发成本</strong></td>
+  <td>技术实现</td>
+  <td>¥20,000</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="53-nft持有者权益">5.3 NFT持有者权益</h3>
+
+<ol>
+<li><strong>🏆 永久收藏价值</strong> - 独一无二的数字纪念品</li>
+<li><strong>⚡ 优先购票权</strong> - 下期活动优先购买</li>
+<li><strong>🗳️ 社群投票权</strong> - 参与重要决策</li>
+<li><strong>📈 潜在增值</strong> - 长期价值成长空间</li>
+</ol>
+
+<hr />
+
+<h2 id="第六部分营销推广战略">第六部分：营销推广战略</h2>
+
+<h3 id="61-第一阶段预热期1120-125">6.1 第一阶段：预热期（11.20-12.5）</h3>
+
+<p><strong>核心任务</strong>：<br />
+- 太阳直播间每日提及造势<br />
+- 建立2000人核心社群<br />
+- 发布系列活动海报<br />
+- 高中生校内定向宣传</p>
+
+<h3 id="62-第二阶段售票期126-1215">6.2 第二阶段：售票期（12.6-12.15）</h3>
+
+<p><strong>重点策略</strong>：<br />
+- <strong>早鸟特惠</strong>：99元限时48小时<br />
+- <strong>KOL合作</strong>：票务资源置换<br />
+- <strong>社群裂变</strong>：买2送1限时活动<br />
+- <strong>社媒营销</strong>：抖音/小红书话题运营</p>
+
+<h3 id="63-第三阶段冲刺期1216-1226">6.3 第三阶段：冲刺期（12.16-12.26）</h3>
+
+<p><strong>冲刺举措</strong>：<br />
+- 制造紧迫感氛围<br />
+- 发布彩排精彩花絮<br />
+- 用户晒票互动活动<br />
+- 现场惊喜预告</p>
+
+<hr />
+
+<h2 id="第七部分执行时间轴">第七部分：执行时间轴</h2>
+
+<h3 id="71-11月关键节点">7.1 11月关键节点</h3>
+
+<ul>
+<li><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>11.20</strong> ｜确定场地并支付定金</li>
+<li><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>11.25</strong> ｜完成整体视觉设计</li>
+<li><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>11.28</strong> ｜搭建线上售票系统</li>
+<li><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>11.30</strong> ｜社群规模达到500人</li>
+</ul>
+
+<h3 id="72-12月冲刺节点">7.2 12月冲刺节点</h3>
+
+<ul>
+<li><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>12.01</strong> ｜正式开启预售通道</li>
+<li><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>12.05</strong> ｜最终确定演出阵容</li>
+<li><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>12.10</strong> ｜周边物料生产完毕</li>
+<li><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>12.15</strong> ｜完成技术测试验收</li>
+<li><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>12.20</strong> ｜现场走台彩排</li>
+<li><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>12.26</strong> ｜<strong>正式演出</strong></li>
+</ul>
+
+<hr />
+
+<h2 id="第八部分风险管控矩阵">第八部分：风险管控矩阵</h2>
+
+<h3 id="81-风险识别与应对">8.1 风险识别与应对</h3>
+
+<table>
+<thead>
+<tr>
+  <th>风险类型</th>
+  <th>发生概率</th>
+  <th>应对预案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>票房不足</strong></td>
+  <td>30%</td>
+  <td>太阳保底300人 + 学生团体优惠</td>
+</tr>
+<tr>
+  <td><strong>技术故障</strong></td>
+  <td>20%</td>
+  <td>纸质票备份 + 现场人工验证</td>
+</tr>
+<tr>
+  <td><strong>物料延期</strong></td>
+  <td>15%</td>
+  <td>提前生产 + 双供应商保障</td>
+</tr>
+<tr>
+  <td><strong>天气影响</strong></td>
+  <td>10%</td>
+  <td>室内场地 + 购买活动保险</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="82-应急预案">8.2 应急预案</h3>
+
+<p><strong>票房保底机制</strong>：<br />
+- 太阳个人粉丝保底300人<br />
+- 学生团体票优惠政策<br />
+- 最后一周紧急营销投入</p>
+
+<p><strong>技术保障措施</strong>：<br />
+- 双系统备份（线上+纸质）<br />
+- 现场技术团队待命<br />
+- 与场地方技术对接</p>
+
+<hr />
+
+<h2 id="第九部分成功指标体系">第九部分：成功指标体系</h2>
+
+<h3 id="91-量化指标硬指标">9.1 量化指标（硬指标）</h3>
+
+<table>
+<thead>
+<tr>
+  <th>指标项</th>
+  <th>目标值</th>
+  <th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>售票率</strong></td>
+  <td>80%+</td>
+  <td>960人以上</td>
+</tr>
+<tr>
+  <td><strong>毛利率</strong></td>
+  <td>50%+</td>
+  <td>盈利能力</td>
+</tr>
+<tr>
+  <td><strong>社群留存</strong></td>
+  <td>60%+</td>
+  <td>长期价值</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="92-质化指标软指标">9.2 质化指标（软指标）</h3>
+
+<ul>
+<li><strong>😊 用户满意度</strong> &gt; 90%</li>
+<li><strong>📈 二次传播率</strong> &gt; 30%</li>
+<li><strong>📰 媒体报道</strong> &gt; 5家主流媒体</li>
+</ul>
+
+<hr />
+
+<h2 id="第十部分项目创新亮点">第十部分：项目创新亮点</h2>
+
+<h3 id="101-三大差异化优势">10.1 三大差异化优势</h3>
+
+<ol>
+<li><strong>🌙 月亮主题</strong> - "只有现在，没有过去和未来"的哲学内核</li>
+<li><strong>💝 情感价值</strong> - 每个细节都是值得珍藏的记忆</li>
+<li><strong>🤝 社群共创</strong> - 用户深度参与艺人选择、周边设计全过程</li>
+</ol>
+
+<h3 id="102-核心价值主张">10.2 核心价值主张</h3>
+
+<blockquote>
+  <p><strong>"这不是一场演出，是一次共同创造的记忆"</strong></p>
+</blockquote>
+
+<hr />
+
+<h2 id="第十一部分长期发展规划">第十一部分：长期发展规划</h2>
+
+<h3 id="111-赛季制运营模式">11.1 赛季制运营模式</h3>
+
+<ul>
+<li><strong>每赛季3场</strong>，全年共6场精品活动</li>
+<li><strong>积分通用</strong>，赛季内积分互通使用</li>
+<li><strong>主题赛季</strong>，每季一个独特主题</li>
+<li><strong>NFT权益</strong>，持有者享受长期权益</li>
+</ul>
+
+<h3 id="112-品牌愿景">11.2 品牌愿景</h3>
+
+<blockquote>
+  <p><strong>打造深圳最具影响力的青年音乐现场品牌</strong></p>
+  
+  <p><strong>成为华南地区青年文化的标志性IP</strong></p>
+</blockquote>
+
+<hr />
+
+<h2 id="第十二部分立即行动清单">第十二部分：立即行动清单</h2>
+
+<h3 id="121-本周必做任务优先级排序">12.1 本周必做任务（优先级排序）</h3>
+
+<ol>
+<li><strong>🏢 确认12.26场地可用性</strong>（今日完成）</li>
+<li><strong>🤝 与太阳确认合作细节</strong>（48小时内）</li>
+<li><strong>👥 组建5人核心执行团队</strong>（本周内）</li>
+<li><strong>🎨 制作第一版活动海报</strong>（3天内）</li>
+<li><strong>💬 建立微信群</strong>（目标100人）（立即开始）</li>
+</ol>
+
+<h3 id="122-关键联系清单">12.2 关键联系清单</h3>
+
+<table>
+<thead>
+<tr>
+  <th>角色</th>
+  <th>负责事项</th>
+  <th>联系时限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>场地负责人</strong></td>
+  <td>确认档期&amp;签约</td>
+  <td>24小时内</td>
+</tr>
+<tr>
+  <td><strong>太阳团队</strong></td>
+  <td>合作细节确认</td>
+  <td>48小时内</td>
+</tr>
+<tr>
+  <td><strong>国际学校乐队</strong></td>
+  <td>演出意向沟通</td>
+  <td>本周内</td>
+</tr>
+<tr>
+  <td><strong>设计师</strong></td>
+  <td>视觉方案启动</td>
+  <td>3天内</td>
+</tr>
+<tr>
+  <td><strong>技术开发</strong></td>
+  <td>系统需求对接</td>
+  <td>本周内</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h2 id="项目总结">项目总结</h2>
+
+<h3 id="核心成功要素">核心成功要素</h3>
+
+<ol>
+<li><strong>团队执行力</strong>：专业分工，高效协作</li>
+<li><strong>创新营销</strong>：积分体系+NFT概念降低门槛</li>
+<li><strong>情感连接</strong>：月亮主题的哲学内核打动人心</li>
+<li><strong>社群运营</strong>：深度参与的共创模式</li>
+<li><strong>风险控制</strong>：多重保底机制确保成功</li>
+</ol>
+
+<h3 id="预期成果">预期成果</h3>
+
+<ul>
+<li><strong>财务回报</strong>：预期净利润40万+</li>
+<li><strong>品牌价值</strong>：建立青年音乐文化IP</li>
+<li><strong>社群资产</strong>：积累2000+核心粉丝</li>
+<li><strong>经验积累</strong>：为后续赛季奠定基础</li>
+</ul>
+
+<hr />
+
+<h2 id="参考资料">参考资料</h2>
+
+<ol>
+<li><strong>周子轩会议记录</strong>（2025年9月3日）</li>
+<li><strong>项目相关录音整理</strong></li>
+<li><strong>市场调研数据</strong></li>
+<li><strong>同类活动成功案例分析</strong></li>
+</ol>
+
+<hr />
+
+<h2 id="项目信息">项目信息</h2>
+
+<ul>
+<li><strong>最后更新</strong>：2025年9月16日</li>
+<li><strong>项目负责人</strong>：周子轩</li>
+<li><strong>当前状态</strong>：待执行</li>
+<li><strong>联系方式</strong>：[项目组邮箱]</li>
+</ul>
+
+<hr />
+
+<p><em>© 2025 Livehouse 12.26 项目组 | 保密文件，请勿外传</em></p>
+
+<hr />
+
+<p><strong>行动号召</strong>：</p>
+
+<p>🚀 <strong>现在就是最佳启动时机！</strong></p>
+
+<p>时间紧迫，机会珍贵。让我们立即行动，将这个充满创意和激情的项目变为现实，为深圳的青年音乐文化贡献一份力量！</p>
+
+<p><strong>项目成功的关键在于立即执行。每一天的延误都是对梦想的辜负。</strong></p>
+
+<hr />
+
+<p><em>"月亮不属于任何人，但这一刻属于我们所有人。" - Livehouse 12.26</em></p>
+
+    </main>
+
+    <!-- 返回顶部 -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // 初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 隐藏加载动画
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 800);
+
+            // 生成目录
+            generateTOC();
+
+            // 初始化主题
+            initTheme();
+
+            // 初始化事件监听
+            initEventListeners();
+
+            // 初始化滚动监听
+            initScrollListener();
+
+            // 初始化代码复制功能
+            initCodeCopy();
+
+            // 添加特殊样式
+            addSpecialStyles();
+        });
+
+        // 生成目录
+        function generateTOC() {
+            const tocNav = document.getElementById('tocNav');
+            const headings = document.querySelectorAll('h2, h3');
+            const tocList = document.createElement('ul');
+            tocList.className = 'toc-list';
+
+            let currentH2List = null;
+
+            headings.forEach((heading, index) => {
+                const id = heading.id || `heading-${index}`;
+                heading.id = id;
+
+                const tocItem = document.createElement('li');
+                tocItem.className = 'toc-item';
+
+                const tocLink = document.createElement('a');
+                tocLink.className = 'toc-link';
+                tocLink.href = `#${id}`;
+                tocLink.textContent = heading.textContent;
+
+                tocLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    smoothScroll(id);
+
+                    // 更新活动状态
+                    document.querySelectorAll('.toc-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                });
+
+                tocItem.appendChild(tocLink);
+
+                if (heading.tagName === 'H2') {
+                    tocList.appendChild(tocItem);
+                    currentH2List = document.createElement('ul');
+                    currentH2List.className = 'toc-list';
+                    tocItem.appendChild(currentH2List);
+                } else if (heading.tagName === 'H3' && currentH2List) {
+                    currentH2List.appendChild(tocItem);
+                }
+            });
+
+            tocNav.appendChild(tocList);
+        }
+
+        // 平滑滚动
+        function smoothScroll(targetId) {
+            const target = document.getElementById(targetId);
+            if (target) {
+                const targetPosition = target.offsetTop - 100;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // 初始化主题
+        function initTheme() {
+            const savedTheme = localStorage.getItem('livehouse-theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateThemeIcon(savedTheme);
+        }
+
+        // 更新主题图标
+        function updateThemeIcon(theme) {
+            const themeBtn = document.getElementById('themeBtn');
+            const icon = themeBtn.querySelector('i');
+            if (theme === 'dark') {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        }
+
+        // 初始化事件监听
+        function initEventListeners() {
+            // 主题切换
+            document.getElementById('themeBtn').addEventListener('click', function() {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('livehouse-theme', newTheme);
+                updateThemeIcon(newTheme);
+            });
+
+            // 侧边栏切换
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('mainContent');
+
+            sidebarToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('active');
+                sidebarToggle.classList.toggle('active');
+                mainContent.classList.toggle('full-width');
+            });
+
+            // 搜索功能
+            const searchBtn = document.getElementById('searchBtn');
+            const searchContainer = document.getElementById('searchContainer');
+            const searchInput = document.getElementById('searchInput');
+
+            searchBtn.addEventListener('click', function() {
+                searchContainer.classList.toggle('active');
+                if (searchContainer.classList.contains('active')) {
+                    searchInput.focus();
+                }
+            });
+
+            // 搜索输入
+            searchInput.addEventListener('input', function() {
+                performSearch(this.value);
+            });
+
+            // 点击外部关闭搜索
+            document.addEventListener('click', function(e) {
+                if (!searchContainer.contains(e.target) && !searchBtn.contains(e.target)) {
+                    searchContainer.classList.remove('active');
+                }
+            });
+
+            // 打印
+            document.getElementById('printBtn').addEventListener('click', function() {
+                window.print();
+            });
+
+            // 下载
+            document.getElementById('downloadBtn').addEventListener('click', function() {
+                alert('项目方案文档可通过浏览器"打印 > 保存为PDF"功能下载');
+            });
+
+            // 返回顶部
+            document.getElementById('backToTop').addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // 初始化滚动监听
+        function initScrollListener() {
+            const navbar = document.getElementById('navbar');
+            const backToTop = document.getElementById('backToTop');
+            const progressBar = document.getElementById('progressBar');
+            const headings = document.querySelectorAll('h2, h3');
+            const tocLinks = document.querySelectorAll('.toc-link');
+
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrollProgress = (scrollTop / scrollHeight) * 100;
+
+                // 更新进度条
+                progressBar.style.width = scrollProgress + '%';
+
+                // 导航栏样式
+                if (scrollTop > 20) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+
+                // 返回顶部按钮
+                if (scrollTop > 400) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+
+                // 更新目录活动状态
+                let currentSection = '';
+                headings.forEach(heading => {
+                    const rect = heading.getBoundingClientRect();
+                    if (rect.top <= 120) {
+                        currentSection = heading.id;
+                    }
+                });
+
+                tocLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentSection}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        }
+
+        // 初始化代码复制
+        function initCodeCopy() {
+            document.querySelectorAll('pre').forEach(pre => {
+                const button = document.createElement('button');
+                button.className = 'code-copy-btn';
+                button.innerHTML = '<i class="fas fa-copy"></i> 复制';
+
+                button.addEventListener('click', function() {
+                    const code = pre.querySelector('code');
+                    const text = code.textContent;
+
+                    navigator.clipboard.writeText(text).then(() => {
+                        button.innerHTML = '<i class="fas fa-check"></i> 已复制';
+                        setTimeout(() => {
+                            button.innerHTML = '<i class="fas fa-copy"></i> 复制';
+                        }, 2000);
+                    });
+                });
+
+                pre.appendChild(button);
+            });
+        }
+
+        // 搜索功能
+        function performSearch(query) {
+            const searchResults = document.getElementById('searchResults');
+            searchResults.innerHTML = '';
+
+            if (query.length < 2) {
+                return;
+            }
+
+            const headings = document.querySelectorAll('h2, h3, h4');
+            const results = [];
+
+            headings.forEach(heading => {
+                if (heading.textContent.toLowerCase().includes(query.toLowerCase())) {
+                    results.push({
+                        title: heading.textContent,
+                        id: heading.id,
+                        level: heading.tagName
+                    });
+                }
+            });
+
+            if (results.length > 0) {
+                results.forEach(result => {
+                    const item = document.createElement('div');
+                    item.className = 'search-result-item';
+                    item.innerHTML = `<strong>${result.level}</strong>: ${result.title}`;
+                    item.addEventListener('click', function() {
+                        smoothScroll(result.id);
+                        document.getElementById('searchContainer').classList.remove('active');
+                    });
+                    searchResults.appendChild(item);
+                });
+            } else {
+                searchResults.innerHTML = '<div class="search-result-item">没有找到相关内容</div>';
+            }
+        }
+
+        // 添加特殊样式
+        function addSpecialStyles() {
+            // 为执行摘要添加特殊样式
+            const summarySection = document.querySelector('h2[id*="执行摘要"], h2[id*="摘要"]');
+            if (summarySection) {
+                const nextElement = summarySection.nextElementSibling;
+                if (nextElement && nextElement.tagName === 'P') {
+                    nextElement.classList.add('highlight-card');
+                }
+            }
+        }
+
+        // 键盘快捷键
+        document.addEventListener('keydown', function(e) {
+            // Ctrl/Cmd + K 打开搜索
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                document.getElementById('searchBtn').click();
+            }
+
+            // Escape 关闭搜索
+            if (e.key === 'Escape') {
+                document.getElementById('searchContainer').classList.remove('active');
+            }
+
+            // Ctrl/Cmd + D 切换主题
+            if ((e.ctrlKey || e.metaKey) && e.key === 'd') {
+                e.preventDefault();
+                document.getElementById('themeBtn').click();
+            }
+        });
+    </script>
+</body>
+</html>
