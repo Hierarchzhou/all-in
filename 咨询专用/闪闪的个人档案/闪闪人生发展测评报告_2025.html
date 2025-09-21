@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人生发展测评报告 - 闪闪</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9f5f5 100%);
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+        }
+
+        /* 封面页 */
+        .cover-page {
+            height: 297mm;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            page-break-after: always;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cover-page::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff22" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,133.3C960,128,1056,96,1152,96C1248,96,1344,128,1392,144L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat;
+            animation: wave 10s linear infinite;
+        }
+
+        @keyframes wave {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .cover-title {
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .cover-subtitle {
+            font-size: 1.5em;
+            font-weight: 300;
+            opacity: 0.95;
+            z-index: 1;
+        }
+
+        .cover-info {
+            position: absolute;
+            bottom: 60px;
+            font-size: 1.1em;
+            opacity: 0.9;
+            z-index: 1;
+        }
+
+        /* 内容页 */
+        .content {
+            padding: 40px 60px;
+        }
+
+        /* 标题样式 */
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            font-weight: 700;
+            margin: 60px 0 30px 0;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #3498db;
+            page-break-before: always;
+        }
+
+        h1:first-child {
+            page-break-before: avoid;
+        }
+
+        h2 {
+            color: #34495e;
+            font-size: 1.8em;
+            font-weight: 600;
+            margin: 40px 0 20px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 3px;
+        }
+
+        h3 {
+            color: #7f8c8d;
+            font-size: 1.4em;
+            font-weight: 500;
+            margin: 30px 0 15px 0;
+            padding: 10px 20px;
+            background: linear-gradient(to right, #f8f9fa, transparent);
+            border-left: 3px solid #3498db;
+        }
+
+        /* 段落样式 */
+        p {
+            margin: 15px 0;
+            text-align: justify;
+            color: #4a5568;
+            font-size: 1.05em;
+        }
+
+        /* 引用样式 */
+        blockquote {
+            margin: 20px 0;
+            padding: 20px 30px;
+            background: linear-gradient(135deg, #f6f9fc 0%, #e9f5f5 100%);
+            border-left: 4px solid #3498db;
+            font-style: italic;
+            color: #555;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        /* 列表样式 */
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+            color: #4a5568;
+        }
+
+        li {
+            margin: 8px 0;
+            line-height: 1.8;
+        }
+
+        /* 强调文字 */
+        strong {
+            color: #2c3e50;
+            font-weight: 600;
+            background: linear-gradient(to bottom, transparent 60%, #ffd700 60%);
+        }
+
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e2e8f0;
+            background: white;
+        }
+
+        tr:nth-child(even) td {
+            background: #f8f9fa;
+        }
+
+        /* 分隔线 */
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #cbd5e0, transparent);
+            margin: 40px 0;
+        }
+
+        /* 特殊卡片 */
+        .highlight-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 1px solid #667eea30;
+        }
+
+        /* 页面布局 */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .container {
+                box-shadow: none;
+            }
+
+            .cover-page {
+                height: 100vh;
+            }
+
+            h1 {
+                page-break-before: always;
+            }
+
+            h1:first-child {
+                page-break-before: avoid;
+            }
+        }
+
+        /* 阶段标签 */
+        .phase-tag {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+            margin-right: 10px;
+        }
+
+        .phase-1 {
+            background: #ff6b6b;
+            color: white;
+        }
+
+        .phase-2 {
+            background: #4ecdc4;
+            color: white;
+        }
+
+        .phase-3 {
+            background: #45b7d1;
+            color: white;
+        }
+
+        .phase-4 {
+            background: #96ceb4;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 封面页 -->
+        <div class="cover-page">
+            <div class="cover-title">人生发展测评报告</div>
+            <div class="cover-subtitle">Life Development Assessment Report</div>
+            <div class="cover-info">
+                <p>闪闪 | 2025年3月-8月</p>
+                <p>咨询师：周子轩</p>
+            </div>
+        </div>
+
+        <!-- 内容页 -->
+        <div class="content">
+            <h1>写在前面</h1>
+            <p>Hi，闪闪，人生旅途，路漫漫，人攘攘，恰好与此时此境的你相遇。</p>
+            <p>很高兴在你人生的关键节点相遇，让我们有幸参与你人生之旅中短暂而重要的一段路程。</p>
+            <p>每个人都爱听故事，也爱讲故事，在讲故事的过程中，回答"我是谁"。</p>
+            <p>我们即是自己人生故事的作者，也是听众，还是评论家。这次相遇，于我们是荣幸，于你也是恰到好处的契机，多一个朋友一起看看一路走来的故事，这个世界上独一无二的故事。</p>
+
+            <h2>我们的相遇</h2>
+            <p>我们会与此时此刻的你相遇，是因你心中有新的期待，一些旧有模式不能满足的期待。</p>
+
+            <div class="highlight-card">
+                <p><strong>你在3月时这样表达你的困扰——</strong></p>
+                <ul>
+                    <li>"交流的时候，压力比较大"</li>
+                    <li>"一直活在自己的价值观和标准里"</li>
+                    <li>"对工作就是敷衍的"</li>
+                </ul>
+            </div>
+
+            <p>而经过5个月的咨询历程，你的期待已经转变为：<strong>看清自己的本质；建立健康的人际边界；在工作中寻求专业成长。</strong></p>
+
+            <h1>第一篇章：关于你</h1>
+            <p>你用心讲述你的人生故事，关于一路走来的那山那水那些人，以及走在天地间的你自己。让我们一起通过咨询会谈、材料细节，在你的人生故事中理解"我是谁"。</p>
+
+            <h2>你的基本信息</h2>
+            <table>
+                <tr>
+                    <th>项目</th>
+                    <th>信息</th>
+                    <th>项目</th>
+                    <th>信息</th>
+                </tr>
+                <tr>
+                    <td><strong>姓名</strong></td>
+                    <td>闪闪</td>
+                    <td><strong>性别</strong></td>
+                    <td>女</td>
+                </tr>
+                <tr>
+                    <td><strong>年龄</strong></td>
+                    <td>约26-27岁</td>
+                    <td><strong>现居城市</strong></td>
+                    <td>某县城</td>
+                </tr>
+                <tr>
+                    <td><strong>行业职业</strong></td>
+                    <td>体制内工作者</td>
+                    <td><strong>婚恋状况</strong></td>
+                    <td>单身</td>
+                </tr>
+                <tr>
+                    <td><strong>学历</strong></td>
+                    <td>本科及以上</td>
+                    <td><strong>父母联系</strong></td>
+                    <td>同住/频繁接触</td>
+                </tr>
+            </table>
+
+            <h2>你有什么性格特点？</h2>
+            <p>"江山易改，秉性难移"。每个人都有性格特点，在人生故事中发挥着潜移默化的影响，心理学上把它们称为"人格特质"，日常叫做"性格特点"。</p>
+
+            <div class="highlight-card">
+                <h3>你的人格特质</h3>
+                <ul>
+                    <li><strong>高敏感性</strong>："你大五人格里面就是你对很多东西都是很敏感的"（4月7日）</li>
+                    <li><strong>好奇心强</strong>："对新鲜事物是非常的好奇"、"很天然的，我想去成为很优秀的人"</li>
+                    <li><strong>认真态度</strong>："你太认真了"、"你非常认真"</li>
+                    <li><strong>INFP型人格</strong>：理想主义者，重视内在价值和真实性（5月28日确认）</li>
+                </ul>
+            </div>
+
+            <h2>你的认知能力如何？</h2>
+            <p>认知能力是行动的核心基础。但认知能力不止包括逻辑计算的智商，还有身体学习的感商、理性反思的理商。</p>
+            <ul>
+                <li><strong>理商高</strong>：5月能独立看到事件本质，8月形成理性复盘能力</li>
+                <li><strong>觉察力强</strong>：能看到自己的模式和问题根源</li>
+                <li><strong>学习能力</strong>：从情绪化处理到理性处理工作，主动学习专业知识</li>
+            </ul>
+
+            <h2>你的动机偏好是什么？</h2>
+            <p>动机如同饮食口味，各有偏好，并且会影响我们的行动和结果。在你的故事里，你具有这样的动机偏好——</p>
+
+            <table>
+                <tr>
+                    <th>动机维度</th>
+                    <th>3-4月表现</th>
+                    <th>7-8月表现</th>
+                </tr>
+                <tr>
+                    <td><strong>自主性</strong></td>
+                    <td>完全被环境带着走</td>
+                    <td>主动选择和管理</td>
+                </tr>
+                <tr>
+                    <td><strong>关系需求</strong></td>
+                    <td>渴望但恐惧</td>
+                    <td>主动筛选，建立边界</td>
+                </tr>
+                <tr>
+                    <td><strong>成长动机</strong></td>
+                    <td>想要但无力</td>
+                    <td>付诸行动，低成本试错</td>
+                </tr>
+                <tr>
+                    <td><strong>安全需求</strong></td>
+                    <td>体制内寻求保障</td>
+                    <td>在安全基础上寻求发展</td>
+                </tr>
+            </table>
+
+            <h2>过去你在讲一个什么故事</h2>
+            <p>人们通过讲故事来回答"我是谁"。你的人生故事，在生活的方方面面影响着你。</p>
+
+            <div class="highlight-card">
+                <h3>你的故事主线经历了明显的转变</h3>
+
+                <p><span class="phase-tag phase-1">3-4月</span><strong>对抗与纠结的故事</strong></p>
+                <ul>
+                    <li>故事主题：与环境格格不入的痛苦</li>
+                    <li>叙事基调：悲剧，充满矛盾和内耗</li>
+                    <li>故事节奏：被动，被环境和他人带着走</li>
+                </ul>
+
+                <p><span class="phase-tag phase-2">5-6月</span><strong>觉察与看清的故事</strong></p>
+                <ul>
+                    <li>故事主题：看到本质，理解真相</li>
+                    <li>叙事基调：转折，从痛苦到轻松</li>
+                    <li>故事节奏：开始有主动性</li>
+                </ul>
+
+                <p><span class="phase-tag phase-3">7-8月</span><strong>整合与成长的故事</strong></p>
+                <ul>
+                    <li>故事主题：接纳自己，主动选择</li>
+                    <li>叙事基调：积极，虽有挑战但在成长</li>
+                    <li>故事节奏：自主，开始掌控自己的生活</li>
+                </ul>
+            </div>
+
+            <h1>第二篇章：你的成长轨迹</h1>
+
+            <h2>发展阶段总览</h2>
+
+            <h3><span class="phase-tag phase-1">第一阶段</span>初始状态期（3月-4月初）</h3>
+            <p><strong>核心特征：对抗、纠结、内耗</strong></p>
+            <ul>
+                <li>人际关系：紧张、压力大、感觉被攻击</li>
+                <li>工作态度：消极应付、厌恶</li>
+                <li>自我状态：情绪化、活在想象中</li>
+                <li>与父母关系：对抗、不开心</li>
+            </ul>
+            <p><strong>标志性转变：</strong>4月开始尝试从对抗转向接纳</p>
+
+            <h3><span class="phase-tag phase-2">第二阶段</span>觉察突破期（4月中-5月）</h3>
+            <p><strong>核心特征：看清本质、情绪解脱</strong></p>
+
+            <div class="highlight-card">
+                <p><strong>关键事件与转变：</strong></p>
+                <ul>
+                    <li><strong>4月24日：</strong>与部门经理关系缓解，"不因他人而痛苦"</li>
+                    <li><strong>5月16日：</strong>认识到价值观差异，意识到需要"让自己升级"</li>
+                    <li><strong>5月22日：</strong>巡视组谈话事件，第一次独立看到本质</li>
+                    <li><strong>5月27日：</strong>看清体制内本质，学会保护自己</li>
+                </ul>
+            </div>
+
+            <h3><span class="phase-tag phase-3">第三阶段</span>行动发展期（6月-7月）</h3>
+            <p><strong>核心特征：从认知到行动</strong></p>
+            <ul>
+                <li>身体层面：开始运动，身体症状改善50%</li>
+                <li>关系层面：与父母关系缓和</li>
+                <li>工作层面：从情绪化转向理性处理</li>
+                <li>获得多方认可：多个部门抛橄榄枝</li>
+            </ul>
+
+            <h3><span class="phase-tag phase-4">第四阶段</span>成熟整合期（8月）</h3>
+            <p><strong>核心特征：整合、接纳、主动选择</strong></p>
+            <ul>
+                <li>理性复盘能力形成</li>
+                <li>主动管理人际关系</li>
+                <li>工作中寻求专业提升</li>
+                <li>接纳自己的特质（包括三分钟热度）</li>
+                <li>低成本试错意识</li>
+            </ul>
+
+            <h2>人生资本评估</h2>
+
+            <h3>当前人生资本状况</h3>
+            <p>基于5个月的发展观察：</p>
+
+            <table>
+                <tr>
+                    <th>资本类型</th>
+                    <th>3月状态</th>
+                    <th>8月状态</th>
+                    <th>变化趋势</th>
+                </tr>
+                <tr>
+                    <td><strong>心理资本</strong></td>
+                    <td>负面情绪主导</td>
+                    <td>情绪稳定，自我觉察</td>
+                    <td style="color: #27ae60;">↑ 显著提升</td>
+                </tr>
+                <tr>
+                    <td><strong>技能资本</strong></td>
+                    <td>敷衍工作</td>
+                    <td>主动学习专业知识</td>
+                    <td style="color: #27ae60;">↑ 开始积累</td>
+                </tr>
+                <tr>
+                    <td><strong>社会资本</strong></td>
+                    <td>关系紧张</td>
+                    <td>健康边界，获得认可</td>
+                    <td style="color: #27ae60;">↑ 重新构建</td>
+                </tr>
+                <tr>
+                    <td><strong>健康资本</strong></td>
+                    <td>身体症状明显</td>
+                    <td>规律运动，症状减轻50%</td>
+                    <td style="color: #27ae60;">↑ 明显改善</td>
+                </tr>
+                <tr>
+                    <td><strong>经济资本</strong></td>
+                    <td>体制内稳定</td>
+                    <td>体制内稳定</td>
+                    <td style="color: #f39c12;">→ 保持稳定</td>
+                </tr>
+            </table>
+
+            <h2>人生发展状态评估</h2>
+
+            <h3>发展趋势分析</h3>
+
+            <div class="highlight-card">
+                <p><strong>3-5月：转折上升期</strong></p>
+                <ul>
+                    <li>从低谷期开始向上</li>
+                    <li>关键转折点密集出现</li>
+                    <li>情绪和认知层面突破</li>
+                </ul>
+
+                <p><strong>6-8月：稳步发展期</strong></p>
+                <ul>
+                    <li>行动力逐步增强</li>
+                    <li>各方面趋于平衡</li>
+                    <li>形成良性循环</li>
+                </ul>
+            </div>
+
+            <h3>风险与机遇</h3>
+
+            <table>
+                <tr>
+                    <th>潜在风险</th>
+                    <th>发展机遇</th>
+                </tr>
+                <tr>
+                    <td>
+                        <ul>
+                            <li>自信心仍需巩固</li>
+                            <li>行动力需要持续强化</li>
+                            <li>选择困难可能影响决策</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>多个晋升机会已经出现</li>
+                            <li>自我觉察能力已经形成</li>
+                            <li>支持系统逐步建立</li>
+                            <li>身心健康明显改善</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+
+            <h1>第三篇章：发展建议</h1>
+
+            <h2>核心发展方向</h2>
+            <p>基于你5个月的成长轨迹，建议重点关注：</p>
+
+            <h3>1. 巩固并深化已有成长</h3>
+            <div class="highlight-card">
+                <p><strong>持续做的事：</strong></p>
+                <ul>
+                    <li>保持运动习惯（每周2次羽毛球）</li>
+                    <li>继续理性复盘和记录</li>
+                    <li>维护健康的人际边界</li>
+                </ul>
+            </div>
+
+            <h3>2. 专业能力系统提升</h3>
+            <div class="highlight-card">
+                <p><strong>行动建议：</strong></p>
+                <ul>
+                    <li>制定专业学习计划（法务、审计、内控）</li>
+                    <li>在工作中主动承担更复杂的任务</li>
+                    <li>建立专业知识积累体系</li>
+                </ul>
+            </div>
+
+            <h3>3. 增强决策和行动力</h3>
+            <div class="highlight-card">
+                <p><strong>突破点：</strong></p>
+                <ul>
+                    <li>练习"低成本试错"（如先去琴行练琴）</li>
+                    <li>设定小目标并及时行动</li>
+                    <li>相信"我想做"而非"我应该做"</li>
+                </ul>
+            </div>
+
+            <h3>4. 发展兴趣爱好</h3>
+            <div class="highlight-card">
+                <p><strong>探索方向：</strong></p>
+                <ul>
+                    <li>学车（已有明确意向）</li>
+                    <li>音乐类（钢琴）</li>
+                    <li>运动类（继续羽毛球，探索其他）</li>
+                </ul>
+            </div>
+
+            <h2>关键心理建设</h2>
+
+            <h3>核心信念重塑</h3>
+            <table>
+                <tr>
+                    <th>从</th>
+                    <th>到</th>
+                </tr>
+                <tr>
+                    <td>我必须完美</td>
+                    <td>我在成长中</td>
+                </tr>
+                <tr>
+                    <td>别人怎么看</td>
+                    <td>我想成为什么</td>
+                </tr>
+                <tr>
+                    <td>害怕选错</td>
+                    <td>没有完美选择</td>
+                </tr>
+                <tr>
+                    <td>被动等待</td>
+                    <td>主动创造</td>
+                </tr>
+            </table>
+
+            <h3>自我关系改善</h3>
+            <ol>
+                <li><strong>接纳不完美</strong>：三分钟热度也是探索的一部分</li>
+                <li><strong>降低内耗</strong>：觉察并表达被憋回的情绪</li>
+                <li><strong>提升自信</strong>：记录和庆祝每个小进步</li>
+                <li><strong>相信直觉</strong>：你的感受和需求是重要的</li>
+            </ol>
+
+            <h2>行动计划建议</h2>
+
+            <h3>近期（1-3个月）</h3>
+            <div class="highlight-card">
+                <ol>
+                    <li><strong>职业决策</strong>：评估当前的晋升机会，选择最符合成长需求的</li>
+                    <li><strong>学习计划</strong>：每周至少2小时专业学习</li>
+                    <li><strong>兴趣探索</strong>：选择1-2个爱好进行低成本尝试</li>
+                </ol>
+            </div>
+
+            <h3>中期（3-6个月）</h3>
+            <div class="highlight-card">
+                <ol>
+                    <li><strong>能力验证</strong>：通过工作成果验证专业成长</li>
+                    <li><strong>关系深化</strong>：建立1-2个深度支持关系</li>
+                    <li><strong>生活平衡</strong>：形成工作-运动-兴趣的良性节奏</li>
+                </ol>
+            </div>
+
+            <h3>长期（6-12个月）</h3>
+            <div class="highlight-card">
+                <ol>
+                    <li><strong>职业进阶</strong>：争取实质性的职业发展</li>
+                    <li><strong>自我实现</strong>：在某个领域形成独特价值</li>
+                    <li><strong>生活品质</strong>：建立符合INFP特质的理想生活方式</li>
+                </ol>
+            </div>
+
+            <hr>
+
+            <h1>结语</h1>
+
+            <div class="highlight-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 30px;">
+                <p style="color: white;">很高兴与此时此境的你相遇，也感谢你用心分享你的故事。</p>
+
+                <p style="color: white;">5个月的旅程，你完成了从<strong>"被环境带着走"</strong>到<strong>"主动选择人生"</strong>的蜕变。从最初的迷茫痛苦，到看清本质的觉醒，再到付诸行动的勇敢，你的成长轨迹清晰而令人欣慰。</p>
+
+                <p style="color: white;">最打动人的不是完美，而是真实的成长。你开始接纳自己的敏感，理解自己的需求，相信自己的选择。这些看似微小的改变，正在你的生命中产生深远的影响。</p>
+
+                <p style="color: white;">记住咨询师的话：<strong>"相信的是你自己要去做这个事"</strong>（7月27日）。不是因为你有价值才去做，而是因为你想做。这个认知的转变，将是你持续成长的动力源泉。</p>
+
+                <p style="color: white;">INFP的你，注定要走一条忠于内心的路。愿你继续保持觉察，勇敢行动，在看似简单的生活中创造属于自己的精彩。</p>
+
+                <p style="color: white; text-align: center; font-size: 1.2em; margin-top: 30px;"><strong>祝福你的人生发展，相遇心中的期待。</strong></p>
+            </div>
+
+            <p style="text-align: right; margin-top: 40px; color: #7f8c8d;">
+                <em>报告完成日期：2025年9月</em><br>
+                <em>咨询师：周子轩</em>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
