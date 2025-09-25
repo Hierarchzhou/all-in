@@ -1,0 +1,1948 @@
+1
+0:0:0,4 --> 0:0:0,44
+Hello everyone!
+
+2
+0:0:0,44 --> 0:0:1,34
+I'm Lao Jiang.
+
+3
+0:0:1,34 --> 0:0:3,62
+Life has been quite eventful lately.
+
+4
+0:0:3,62 --> 0:0:4,36
+I've been participating in debates,
+
+5
+0:0:4,36 --> 0:0:5,16
+and running a tavern,
+
+6
+0:0:5,16 --> 0:0:7,96
+with several projects to push forward in both life and work.
+
+7
+0:0:7,96 --> 0:0:8,88
+It's been a bit overwhelming,
+
+8
+0:0:8,88 --> 0:0:9,66
+hard to keep up with everything.
+
+9
+0:0:9,66 --> 0:0:11,4
+Just in time, Quark reached out to me,
+
+10
+0:0:11,4 --> 0:0:14,28
+to do a review of their AI Super Box.
+
+11
+0:0:14,28 --> 0:0:15,64
+So, I'll be a bit more practical.
+
+12
+0:0:15,64 --> 0:0:18,8
+I might as well connect it with a few real-life tasks I need to handle recently.
+
+13
+0:0:18,8 --> 0:0:20,8
+to see how much it can actually help me solve this issue.
+
+14
+0:0:20,8 --> 0:0:22,88
+So, what’s the latest feature update from Quark?
+
+15
+0:0:22,88 --> 0:0:24,68
+It’s called Deep Search.
+
+16
+0:0:24,68 --> 0:0:26,3
+The design concept behind this feature is quite interesting.
+
+17
+0:0:26,3 --> 0:0:28,85
+Search isn’t new to AI anymore.
+
+18
+0:0:28,85 --> 0:0:32,13
+I’ve been using AI search for about a year now.
+
+19
+0:0:32,13 --> 0:0:34,94
+So, how does Quark’s Deep Search actually perform in use?
+
+20
+0:0:37,42 --> 0:0:39,62
+The experience really highlights distinct differences.
+
+21
+0:0:39,62 --> 0:0:40,78
+In my view,
+
+22
+0:0:40,78 --> 0:0:43,2
+Quark’s deep search is a combination of an agent and search functionality,
+
+23
+0:0:43,2 --> 0:0:45,3
+integrated with deep thinking.
+
+24
+0:0:45,3 --> 0:0:49,23
+When you ask Quark’s AI deep search a question,
+
+25
+0:0:49,23 --> 0:0:50,43
+it follows a three-step process.
+
+26
+0:0:50,43 --> 0:0:53,17
+The first step is to determine what you need to search for.
+
+27
+0:0:53,17 --> 0:0:54,5
+In this step,
+
+28
+0:0:54,5 --> 0:0:56,5
+Quark breaks down the problem much like a real exam question,
+
+29
+0:0:56,5 --> 0:0:57,45
+analyzing your actual needs.
+
+30
+0:0:57,45 --> 0:0:59,73
+It involves judging your search intent
+
+31
+0:0:59,73 --> 0:1:2,9
+Breaking down the question into several specific search points
+
+32
+0:1:2,9 --> 0:1:4,989
+I personally think this step is very human-like
+
+33
+0:1:4,989 --> 0:1:6,149
+I've always felt that
+
+34
+0:1:6,149 --> 0:1:8,809
+I've also made a video before about how to conduct research.
+
+35
+0:1:8,809 --> 0:1:9,989
+I've deeply pondered this issue
+
+36
+0:1:9,989 --> 0:1:13,17
+I've always believed the hardest part of research
+
+37
+0:1:13,17 --> 0:1:15,53
+May not be the specific search phase
+
+38
+0:1:15,53 --> 0:1:18,4
+Nor is it necessarily the final phase of organizing and summarizing to form insights
+
+39
+0:1:18,4 --> 0:1:22,24
+The most crucial initial step is how to formulate a good question
+
+40
+0:1:22,24 --> 0:1:23,38
+If you bring it up
+
+41
+0:1:23,38 --> 0:1:25,47
+the research is already halfway to success
+
+42
+0:1:25,47 --> 0:1:27,27
+but the paradox lies in where
+
+43
+0:1:27,27 --> 0:1:29,43
+many good questions in specialized fields
+
+44
+0:1:29,43 --> 0:1:31,59
+require a certain amount of information to be raised
+
+45
+0:1:31,59 --> 0:1:33,31
+but before you start searching
+
+46
+0:1:33,31 --> 0:1:34,44
+that information doesn't exist
+
+47
+0:1:34,44 --> 0:1:35,96
+so this leads to the research
+
+48
+0:1:35,96 --> 0:1:38,58
+the initial stage of searching being relatively challenging
+
+49
+0:1:38,58 --> 0:1:39,72
+especially for newcomers
+
+50
+0:1:39,72 --> 0:1:41,82
+For those who are relatively inexperienced in conducting surveys
+
+51
+0:1:41,82 --> 0:1:44,14
+This is also one of the main reasons
+
+52
+0:1:44,14 --> 0:1:45,37
+that makes in-depth research quite challenging
+
+53
+0:1:45,37 --> 0:1:48,65
+Quark’s innovative approach of breaking down vague questions into
+
+54
+0:1:48,65 --> 0:1:51,75
+specific and detailed sub-questions for in-depth searches
+
+55
+0:1:51,75 --> 0:1:54,51
+can significantly reduce the difficulty for ordinary people to conduct research
+
+56
+0:1:54,51 --> 0:1:56,31
+essentially simplifying the most challenging part for you
+
+57
+0:1:56,31 --> 0:1:59,23
+This step also sets Quark apart from other deep thinking
+
+58
+0:1:59,23 --> 0:2:0,69
+models in a significant way
+
+59
+0:2:0,69 --> 0:2:2,67
+making Quark’s search function more effective
+
+60
+0:2:2,67 --> 0:2:4,16
+The planning aspect is noticeably better.
+
+61
+0:2:4,16 --> 0:2:6,44
+The second step is how to search and where to search.
+
+62
+0:2:6,44 --> 0:2:9,12
+This step's foundation is similar to other AI tools.
+
+63
+0:2:9,12 --> 0:2:10,54
+But there are two differences.
+
+64
+0:2:10,54 --> 0:2:11,6
+The first one is that
+
+65
+0:2:11,6 --> 0:2:13,58
+Quark relies on high-quality sources from Alibaba.
+
+66
+0:2:13,58 --> 0:2:15,44
+This is a prerequisite for AI to provide reliable answers.
+
+67
+0:2:15,44 --> 0:2:19,14
+It can reduce the high hallucination rate of large models at the source.
+
+68
+0:2:19,14 --> 0:2:20,28
+I've mentioned in my previous videos
+
+69
+0:2:20,28 --> 0:2:21,4
+the high hallucination rate.
+
+70
+0:2:21,4 --> 0:2:24,27
+Actually, it hinders the current large models from becoming more practical.
+
+71
+0:2:24,27 --> 0:2:25,79
+It's a significant obstacle.
+
+72
+0:2:25,79 --> 0:2:27,2
+It can resolve part of the issue.
+
+73
+0:2:27,2 --> 0:2:29,74
+This point is crucial in many areas involving health, finance, and other critical aspects of life.
+
+74
+0:2:29,74 --> 0:2:33,4
+Only with a low hallucination rate can you trust it.
+
+75
+0:2:33,4 --> 0:2:34,74
+It’s reliable.
+
+76
+0:2:34,74 --> 0:2:35,32
+You’d dare to use it, right?
+
+77
+0:2:35,32 --> 0:2:36,74
+Another difference is that Quark doesn’t just perform searches in a rigid manner.
+
+78
+0:2:36,74 --> 0:2:39,98
+Instead, it’s based on Alibaba’s self-developed large model.
+
+79
+0:2:41,88 --> 0:2:44,93
+Adjust the search content dynamically based on analytical reasoning
+
+80
+0:2:44,93 --> 0:2:47,4
+This is actually quite similar to how humans think.
+
+81
+0:2:47,4 --> 0:2:49,2
+We do indeed search while
+
+82
+0:2:49,2 --> 0:2:51,96
+adjusting our search logic based on further information.
+
+83
+0:2:51,96 --> 0:2:53,7
+It's quite flexible.
+
+84
+0:2:53,7 --> 0:2:54,67
+The third step is deep thinking.
+
+85
+0:2:54,67 --> 0:2:56,67
+Which involves reasoning and fitting based on the search content.
+
+86
+0:2:56,67 --> 0:2:58,19
+Ultimately generating an answer.
+
+87
+0:2:58,19 --> 0:3:1,67
+The advantages of deep thinking have been experienced by many people.
+
+88
+0:3:1,67 --> 0:3:2,83
+I wonder if you've had this experience.
+
+89
+0:3:2,83 --> 0:3:5,3
+Apart from improving search quality,
+
+90
+0:3:5,3 --> 0:3:9,15
+it also allows users to see the AI’s thought process,
+
+91
+0:3:9,15 --> 0:3:11,3
+which helps better understand the issues.
+
+92
+0:3:11,3 --> 0:3:12,33
+My experience is
+
+93
+0:3:12,33 --> 0:3:17,489
+sometimes you can even discover some underlying intentions in your questions
+
+94
+0:3:17,489 --> 0:3:17,689
+by
+
+95
+0:3:17,689 --> 0:3:20,729
+examining the AI’s deep thinking process,
+
+96
+0:3:20,729 --> 0:3:22,8
+intentions that even you didn’t realize you had.
+
+97
+0:3:22,8 --> 0:3:24,84
+I didn’t know my questions had this underlying meaning,
+
+98
+0:3:24,84 --> 0:3:26,12
+but the AI picked it up.
+
+99
+0:3:26,12 --> 0:3:27,51
+This is indeed the case.
+
+100
+0:3:27,51 --> 0:3:28,71
+So, after comprehensive testing,
+
+101
+0:3:28,71 --> 0:3:30,41
+this methodology involves multiple mechanisms and processes,
+
+102
+0:3:30,41 --> 0:3:32,59
+while also being reliable in sourcing information,
+
+103
+0:3:32,59 --> 0:3:33,21
+it ranks absolutely first,
+
+104
+0:3:33,21 --> 0:3:35,28
+and the results align closely with user needs.
+
+105
+0:3:35,28 --> 0:3:37,8
+It can conduct very specific information searches,
+
+106
+0:3:37,8 --> 0:3:39,8
+as well as handle some rather vague,
+
+107
+0:3:39,8 --> 0:3:41,17
+and more complex daily life issues.
+
+108
+0:3:41,17 --> 0:3:43,61
+Now, I'll proceed to test a few scenarios.
+
+109
+0:3:43,61 --> 0:3:46,3
+These are all based on my actual living needs recently.
+
+110
+0:3:46,3 --> 0:3:49,46
+The first scenario was a few days ago when I participated in a debate in Guangzhou.
+
+111
+0:3:49,46 --> 0:3:52,2
+One of the topics I debated was about abstract culture.
+
+112
+0:3:52,2 --> 0:3:53,87
+Whether it is a poison or an antidote for the youth.
+
+113
+0:3:53,87 --> 0:3:55,59
+Our side argued that it is an antidote.
+
+114
+0:3:55,59 --> 0:3:57,78
+I wanted to see if Quark could help with the preparation.
+
+115
+0:3:57,78 --> 0:3:59,72
+First, I asked him to break down the topic.
+
+116
+0:3:59,72 --> 0:4:1,6
+To see if there could be some inspiration in terms of approach.
+
+117
+0:4:1,6 --> 0:4:3,35
+After asking Quark this question,
+
+118
+0:4:3,35 --> 0:4:5,73
+We saw that Quark took the first step.
+
+119
+0:4:5,73 --> 0:4:6,79
+He didn't start with a search.
+
+120
+0:4:6,79 --> 0:4:10,5
+Instead, he thought about the problem before searching.
+
+121
+0:4:10,5 --> 0:4:13,58
+He assessed the purpose of my search for this question.
+
+122
+0:4:13,58 --> 0:4:15,32
+Then he broke it down into several sub-questions.
+
+123
+0:4:15,32 --> 0:4:16,86
+For instance, in this question,
+
+124
+0:4:16,86 --> 0:4:18,64
+Kuake thought through it and
+
+125
+0:4:18,64 --> 0:4:22,869
+This broke down one of my major issues into five perspectives.
+
+126
+0:4:22,869 --> 0:4:24,69
+The first perspective,
+
+127
+0:4:24,69 --> 0:4:25,98
+for example, is the abstraction of culture,
+
+128
+0:4:25,98 --> 0:4:28,36
+the pathway of change from subculture to mainstream culture
+
+129
+0:4:28,36 --> 0:4:32,12
+The second one is to look into the psychological mechanisms of humor.
+
+130
+0:4:32,12 --> 0:4:33,58
+And the neuroscientific basis as well.
+
+131
+0:4:33,58 --> 0:4:36,46
+Then, investigate how teenagers use this abstract culture.
+
+132
+0:4:36,46 --> 0:4:38,44
+For identity construction, looking at research cases.
+
+133
+0:4:38,44 --> 0:4:41,58
+Also, gather some social case studies.
+
+134
+0:4:41,58 --> 0:4:44,1
+Including exploring postmodern culture.
+
+135
+0:4:44,1 --> 0:4:45,7
+I think these perspectives are quite good.
+
+136
+0:4:45,7 --> 0:4:48,58
+Some of them are even something I haven’t fully grasped.
+
+137
+0:4:48,58 --> 0:4:49,78
+I didn’t think of them at the very beginning.
+
+138
+0:4:49,78 --> 0:4:51,6
+So moving forward, as I mentioned,
+
+139
+0:4:51,6 --> 0:4:53,8
+He embarked on a genuine search.
+
+140
+0:4:53,8 --> 0:4:54,51
+Some of the web pages he searched.
+
+141
+0:4:54,51 --> 0:4:56,9
+Then, with his previous thoughts in mind.
+
+142
+0:4:56,9 --> 0:4:58,47
+These searches were also quite targeted.
+
+143
+0:4:58,47 --> 0:5:0,45
+Finally, he presented some results.
+
+144
+0:5:0,45 --> 0:5:1,3
+First of all,
+
+145
+0:5:1,3 --> 0:5:4,21
+I see this as the origin and development trajectory of abstract culture.
+
+146
+0:5:4,21 --> 0:5:6,34
+This part I found a bit challenging to grasp.
+
+147
+0:5:6,34 --> 0:5:9,56
+Because seeing someone like Yao Shui Ge and Chen Yi being so serious,
+
+148
+0:5:9,56 --> 0:5:11,28
+When they appear in the answers.
+
+149
+0:5:11,28 --> 0:5:12,86
+I feel there's something quite intriguing about it.
+
+150
+0:5:12,86 --> 0:5:14,2
+So, I'll get straight to the point.
+
+151
+0:5:14,2 --> 0:5:16,24
+I'll talk about the standout points among these.
+
+152
+0:5:16,24 --> 0:5:19,7
+For instance, in the breakdown of the debate topic and the theoretical framework,
+
+153
+0:5:19,7 --> 0:5:20,23
+I think they stand out quite a bit.
+
+154
+0:5:20,23 --> 0:5:23,33
+He talks about the solution, which is our actual stance,
+
+155
+0:5:23,33 --> 0:5:25,11
+What could be the core arguments?
+
+156
+0:5:25,11 --> 0:5:26,909
+One is the humorous stress-relief function,
+
+157
+0:5:26,909 --> 0:5:28,389
+This was played out in the debate.
+
+158
+0:5:28,389 --> 0:5:31,389
+Another is building a resilient social ecosystem.
+
+159
+0:5:31,389 --> 0:5:32,189
+There wasn't a direct hit
+
+160
+0:5:32,189 --> 0:5:33,12
+but it was mentioned
+
+161
+0:5:33,12 --> 0:5:36,4
+And it represents a postmodern resistance and reconstruction
+
+162
+0:5:36,4 --> 0:5:39,27
+This point was also truly brought up on the field
+
+163
+0:5:39,27 --> 0:5:42,3
+He pointed out that the opposing side's point about this toxic abstract culture
+
+164
+0:5:42,3 --> 0:5:42,79
+The side arguing for the toxic element
+
+165
+0:5:42,79 --> 0:5:44,94
+He suggested that the opposition might say
+
+166
+0:5:44,94 --> 0:5:46,96
+This abstract culture is not the antidote
+
+167
+0:5:46,96 --> 0:5:48,38
+But rather a numbing agent
+
+168
+0:5:48,38 --> 0:5:51,74
+What we actually put forward on the field was
+
+169
+0:5:51,74 --> 0:5:53,26
+I remember the side of Chen Ming and Luo Miao
+
+170
+0:5:53,26 --> 0:5:55,38
+They said abstract culture is a drug
+
+171
+0:5:55,38 --> 0:5:56,5
+not a cure
+
+172
+0:5:56,5 --> 0:5:57,28
+That's the point
+
+173
+0:5:57,28 --> 0:5:59,34
+Also, this abstract culture
+
+174
+0:5:59,34 --> 0:6:1,7
+leads to the dilution of entertainment and values
+
+175
+0:6:1,7 --> 0:6:3,56
+as well as generational conflicts and cultural fragmentation
+
+176
+0:6:3,56 --> 0:6:6,72
+Then he went on to predict some battlefields of attack and defense
+
+177
+0:6:6,72 --> 0:6:10,82
+including suggestions for the opposition's preparation strategies and so on
+
+178
+0:6:10,82 --> 0:6:12,14
+a series of answers
+
+179
+0:6:12,14 --> 0:6:15,8
+I think this answer is quite useful for reference.
+
+180
+0:6:15,8 --> 0:6:16,18
+So after the test,
+
+181
+0:6:16,18 --> 0:6:19,28
+I believe this question can provide some assistance.
+
+182
+0:6:19,28 --> 0:6:21,72
+Additionally, in the debate, there will certainly be a focus on this.
+
+183
+0:6:21,72 --> 0:6:22,46
+covert defense and offense.
+
+184
+0:6:22,46 --> 0:6:25,56
+For instance, our side argues that abstract culture can bring joy.
+
+185
+0:6:25,56 --> 0:6:26,88
+Since we consider it a remedy,
+
+186
+0:6:26,88 --> 0:6:29,2
+we will certainly provide examples that bring immediate happiness.
+
+187
+0:6:29,2 --> 0:6:30,6
+Positive and uplifting content,
+
+188
+0:6:30,6 --> 0:6:32,2
+examples of such abstract culture.
+
+189
+0:6:32,2 --> 0:6:35,44
+But the other side will definitely mention the particularly repugnant aspects of abstract culture
+
+190
+0:6:35,44 --> 0:6:36,14
+The disgusting ones
+
+191
+0:6:36,14 --> 0:6:38,4
+Those that violate public morals and good customs
+
+192
+0:6:38,4 --> 0:6:39,28
+On this issue
+
+193
+0:6:39,28 --> 0:6:41,57
+I also need Qu to help me search for some cases
+
+194
+0:6:41,57 --> 0:6:42,33
+Gather a few
+
+195
+0:6:42,33 --> 0:6:45,55
+Examples that might assist us in our arguments on the field
+
+196
+0:6:45,55 --> 0:6:47,55
+Qu still follows the three-step approach
+
+197
+0:6:47,55 --> 0:6:48,31
+As you can see
+
+198
+0:6:48,31 --> 0:6:49,23
+This problem breakdown
+
+199
+0:6:49,23 --> 0:6:49,75
+Then search
+
+200
+0:6:49,75 --> 0:6:51,19
+Then engage in deep thinking
+
+201
+0:6:51,19 --> 0:6:52,669
+Finally, give me an answer
+
+202
+0:6:52,669 --> 0:6:54,909
+So, to cut a long story short in this answer
+
+203
+0:6:54,909 --> 0:6:56,429
+I think there are at least two things
+
+204
+0:6:56,429 --> 0:6:58,469
+that we can truly put to use
+
+205
+0:6:58,469 --> 0:7:3,49
+One is that a platform turned the abstract into a selected term last year
+
+206
+0:7:3,49 --> 0:7:5,31
+as its platform's annual keyword
+
+207
+0:7:5,31 --> 0:7:6,57
+This point is useful for us
+
+208
+0:7:6,57 --> 0:7:8,16
+We indeed applied it to some extent in the field
+
+209
+0:7:8,16 --> 0:7:9,8
+Another point is
+
+210
+0:7:9,8 --> 0:7:10,92
+to view the chaotic behavior of young people
+
+211
+0:7:10,92 --> 0:7:13,56
+as a form of deconstruction and rebellion
+
+212
+0:7:13,56 --> 0:7:15,88
+which is also a more positive example
+
+213
+0:7:15,88 --> 0:7:19,799
+This is about how it's used in a debate setting
+
+214
+0:7:19,799 --> 0:7:22,599
+Though this is a bit of hindsight, right?
+
+215
+0:7:22,599 --> 0:7:24,539
+We didn't have Quark when we were debating
+
+216
+0:7:24,539 --> 0:7:27,41
+But looking back, it’s worth evaluating
+
+217
+0:7:27,41 --> 0:7:29,79
+what Quark provided is still useful
+
+218
+0:7:29,79 --> 0:7:31,59
+So what is the second life scenario?
+
+219
+0:7:31,59 --> 0:7:32,45
+It's a pet
+
+220
+0:7:32,45 --> 0:7:34,5
+I have a Maine Coon cat
+
+221
+0:7:34,5 --> 0:7:34,93
+I've had it for many years
+
+222
+0:7:34,93 --> 0:7:35,95
+His name is Guai
+
+223
+0:7:35,95 --> 0:7:37,13
+He is four years old now
+
+224
+0:7:37,13 --> 0:7:38,33
+I can show everyone
+
+225
+0:7:38,33 --> 0:7:39,29
+Super duper handsome
+
+226
+0:7:40,57 --> 0:7:44,34
+Oh, we've brought our naughty one over
+
+227
+0:7:44,34 --> 0:7:46,28
+Guai is really handsome
+
+228
+0:7:46,28 --> 0:7:49,94
+Maine Coons are the largest domestic cats in the world
+
+229
+0:7:49,94 --> 0:7:51,5
+But our cat
+
+230
+0:7:51,5 --> 0:7:54,28
+Our cat has been eating raw meat and bones since it was a kitten
+
+231
+0:7:54,28 --> 0:7:55,38
+Especially vigorous
+
+232
+0:7:55,38 --> 0:7:57,3
+It weighs about 22 pounds
+
+233
+0:7:57,3 --> 0:7:59,8
+I think that's a bit exaggerated
+
+234
+0:7:59,8 --> 0:8:1,72
+I know Maine Coons are quite large
+
+235
+0:8:1,72 --> 0:8:3,76
+But I didn't realize
+
+236
+0:8:3,76 --> 0:8:6,56
+If this weight is overweight
+
+237
+0:8:6,56 --> 0:8:8,46
+And whether it needs to lose weight
+
+238
+0:8:8,46 --> 0:8:9,54
+Regarding this issue
+
+239
+0:8:9,54 --> 0:8:10,62
+Let's ask Quark
+
+240
+0:8:10,62 --> 0:8:11,7
+He seems a bit upset
+
+241
+0:8:11,7 --> 0:8:12,58
+Because he was sleeping just now
+
+242
+0:8:12,58 --> 0:8:14,79
+And I dragged him over
+
+243
+0:8:17,52 --> 0:8:19,72
+Uh-huh
+
+244
+0:8:19,72 --> 0:8:21,7
+It's good to let it go
+
+245
+0:8:21,7 --> 0:8:22,6
+Regarding this issue
+
+246
+0:8:22,6 --> 0:8:24,19
+He'll start by thinking it through
+
+247
+0:8:24,19 --> 0:8:25,79
+And everyone is already quite familiar with it
+
+248
+0:8:25,79 --> 0:8:26,23
+A three-step approach
+
+249
+0:8:26,23 --> 0:8:27,1
+Then proceed with the search.
+
+250
+0:8:27,1 --> 0:8:28,69
+Then dive into a deep search, right?
+
+251
+0:8:28,69 --> 0:8:30,25
+The answer he gave was quite subtle.
+
+252
+0:8:30,25 --> 0:8:32,56
+It's about the size of an adult male cat.
+
+253
+0:8:32,56 --> 0:8:35,32
+Their weight typically ranges from 12 to 25 pounds.
+
+254
+0:8:35,32 --> 0:8:37,26
+But ours weighs 22 pounds.
+
+255
+0:8:37,26 --> 0:8:40,46
+He said it's at the upper end of the normal range for male cats.
+
+256
+0:8:40,46 --> 0:8:42,3
+So while it's a bit heavy,
+
+257
+0:8:42,3 --> 0:8:44,43
+it's not necessarily abnormal.
+
+258
+0:8:44,43 --> 0:8:47,1
+So he suggested I get some tests done.
+
+259
+0:8:47,1 --> 0:8:48,43
+Using a scientific approach
+
+260
+0:8:48,43 --> 0:8:51,79
+which is to see if you can clearly feel the ribs
+
+261
+0:8:51,79 --> 0:8:53,63
+whether there's no excess fat in the abdomen
+
+262
+0:8:53,63 --> 0:8:54,93
+and if the waistline is well-defined
+
+263
+0:8:54,93 --> 0:8:56,39
+So after my testing
+
+264
+0:8:56,39 --> 0:8:57,53
+I felt it all over
+
+265
+0:8:57,53 --> 0:8:59,41
+and I could feel the ribs
+
+266
+0:8:59,41 --> 0:9:0,53
+quite easily
+
+267
+0:9:0,53 --> 0:9:2,59
+but there is excess fat in the abdomen
+
+268
+0:9:2,59 --> 0:9:4,45
+and a bit of sagging
+
+269
+0:9:4,45 --> 0:9:7,92
+So I think it might be slightly overweight
+
+270
+0:9:7,92 --> 0:9:9,56
+but close to the normal range
+
+271
+0:9:9,56 --> 0:9:12,42
+and he also gave a body condition score
+
+272
+0:9:12,42 --> 0:9:13,56
+which is BCS
+
+273
+0:9:13,56 --> 0:9:16,34
+If time permits, I would follow up with Quark
+
+274
+0:9:16,34 --> 0:9:18,61
+to ask what exactly this BCS is
+
+275
+0:9:18,61 --> 0:9:20,65
+and how I can learn about it
+
+276
+0:9:20,65 --> 0:9:21,81
+But that's all for this demo video
+
+277
+0:9:21,81 --> 0:9:24,0
+But that's all for our demonstration video.
+
+278
+0:9:25,88 --> 0:9:27,76
+Including the choice of your cat's food
+
+279
+0:9:27,76 --> 0:9:30,5
+And how to enhance its exercise on a daily basis
+
+280
+0:9:30,5 --> 0:9:32,11
+The management of exercise
+
+281
+0:9:32,11 --> 0:9:35,3
+Also provided some suggestions for monitoring and adjustments
+
+282
+0:9:35,3 --> 0:9:36,29
+Finally, a summary was given
+
+283
+0:9:36,29 --> 0:9:38,94
+I think it's quite useful
+
+284
+0:9:38,94 --> 0:9:44,9
+Going forward, I might indeed encourage Guai Guai a bit more
+
+285
+0:9:44,9 --> 0:9:46,66
+For instance, slightly controlling its diet
+
+286
+0:9:46,66 --> 0:9:49,68
+Because eating raw meat from a young age has indeed made its frame a bit larger
+
+287
+0:9:49,68 --> 0:9:52,14
+And more importantly, ensuring it gets more exercise every day
+
+288
+0:9:52,14 --> 0:9:53,16
+It just lies there every day.
+
+289
+0:9:53,16 --> 0:9:55,8
+Spending the whole day doing that.
+
+290
+0:9:55,8 --> 0:9:57,96
+Actually, it's not very healthy.
+
+291
+0:9:57,96 --> 0:9:59,7
+There's another question about cats.
+
+292
+0:9:59,7 --> 0:10:2,73
+Maine Coons, this breed of cat, are quite brave.
+
+293
+0:10:2,73 --> 0:10:4,51
+And they are relatively more adaptable.
+
+294
+0:10:4,51 --> 0:10:5,77
+Able to adjust to the external environment.
+
+295
+0:10:5,77 --> 0:10:8,57
+So it's possible to train a domestic Maine Coon to go out and play.
+
+296
+0:10:8,57 --> 0:10:9,57
+There's a good chance of success.
+
+297
+0:10:9,57 --> 0:10:11,37
+I really envy those who can take their cats for walks.
+
+298
+0:10:11,37 --> 0:10:14,75
+But the amount of training for our pet from a young age wasn't enough.
+
+299
+0:10:14,75 --> 0:10:16,38
+When we take it out, it gets scared.
+
+300
+0:10:16,38 --> 0:10:17,86
+Sometimes it even shows mild signs of stress.
+
+301
+0:10:17,86 --> 0:10:19,22
+So I asked Quark.
+
+302
+0:10:19,22 --> 0:10:21,4
+Let's see what kind of answer Quark can provide.
+
+303
+0:10:21,4 --> 0:10:23,78
+Now let's look at the agent's section.
+
+304
+0:10:23,78 --> 0:10:24,82
+In the first step,
+
+305
+0:10:24,82 --> 0:10:25,98
+it accurately identified
+
+306
+0:10:25,98 --> 0:10:28,32
+that this is a practical issue related to socialization training.
+
+307
+0:10:28,32 --> 0:10:29,18
+Then it proceeded with the search.
+
+308
+0:10:29,18 --> 0:10:30,1
+Engage in deep thinking
+
+309
+0:10:30,1 --> 0:10:32,36
+So, what did he come up with?
+
+310
+0:10:32,36 --> 0:10:36,19
+First, he taught me how to interpret the behavior patterns of our cat
+
+311
+0:10:36,19 --> 0:10:39,45
+When it goes outside
+
+312
+0:10:39,45 --> 0:10:40,97
+Show me how to understand
+
+313
+0:10:40,97 --> 0:10:43,5
+If there are any underlying issues with its behavior
+
+314
+0:10:43,5 --> 0:10:45,35
+Then he provided a scientific training plan
+
+315
+0:10:45,35 --> 0:10:46,49
+It covers a lot of aspects
+
+316
+0:10:46,49 --> 0:10:48,29
+Including sound desensitization
+
+317
+0:10:48,29 --> 0:10:50,26
+And tactile adaptation, among others
+
+318
+0:10:50,26 --> 0:10:51,86
+It's divided into several stages
+
+319
+0:10:51,86 --> 0:10:54,2
+It's roughly divided into four stages
+
+320
+0:10:54,2 --> 0:10:55,86
+Then proceed gradually with desensitization
+
+321
+0:10:55,86 --> 0:10:57,119
+To carry out speaking practice
+
+322
+0:10:57,119 --> 0:10:59,179
+He also provided some key points to note
+
+323
+0:10:59,179 --> 0:11:0,56
+And an alternative option
+
+324
+0:11:0,56 --> 0:11:3,0
+Well, Shanghai is about to enter summer
+
+325
+0:11:3,0 --> 0:11:4,96
+Which is a good time to take your cat out
+
+326
+0:11:4,96 --> 0:11:7,2
+It's a season with relatively warm weather
+
+327
+0:11:7,2 --> 0:11:9,22
+I might follow this method and see how it goes
+
+328
+0:11:9,22 --> 0:11:11,58
+Can we add both summer and fall to the plan?
+
+329
+0:11:11,58 --> 0:11:14,66
+to groom our little one into someone others will envy,
+
+330
+0:11:14,66 --> 0:11:15,86
+someone we can proudly take out for a walk,
+
+331
+0:11:15,86 --> 0:11:17,82
+and it would be in a content and relaxed state,
+
+332
+0:11:17,82 --> 0:11:19,54
+I think life would be much more enjoyable.
+
+333
+0:11:19,54 --> 0:11:22,37
+And it would also bring a lot more joy to it itself.
+
+334
+0:11:22,37 --> 0:11:25,9
+The third search scenario is health-related.
+
+335
+0:11:25,9 --> 0:11:26,5
+This is a real situation,
+
+336
+0:11:26,5 --> 0:11:27,5
+I'm completely serious about this,
+
+337
+0:11:27,5 --> 0:11:28,49
+I wouldn't joke about something like this.
+
+338
+0:11:28,49 --> 0:11:31,43
+It was a condition my mom was diagnosed with towards the end of last year.
+
+339
+0:11:31,43 --> 0:11:33,37
+It's called macular degeneration.
+
+340
+0:11:33,37 --> 0:11:35,11
+This condition is not life-threatening at all.
+
+341
+0:11:35,11 --> 0:11:37,25
+However, if left untreated,
+
+342
+0:11:37,25 --> 0:11:38,99
+the doctor said there's a risk of blindness.
+
+343
+0:11:38,99 --> 0:11:40,99
+So, medical intervention is necessary.
+
+344
+0:11:40,99 --> 0:11:42,54
+That means surgery might be required.
+
+345
+0:11:42,54 --> 0:11:44,78
+I decided to use Quark to get some information first.
+
+346
+0:11:44,78 --> 0:11:47,1
+To understand what exactly macular degeneration is.
+
+347
+0:11:47,1 --> 0:11:48,74
+Fortunately, Quark does a great job breaking down the issues.
+
+348
+0:11:48,74 --> 0:11:51,18
+He broke it down into five questions as usual.
+
+349
+0:11:51,18 --> 0:11:54,23
+And I think he really got it, very accurately.
+
+350
+0:11:54,23 --> 0:11:57,63
+I just want to say that my understanding of medicine is not very strong.
+
+351
+0:11:57,63 --> 0:11:58,55
+I don't have professional knowledge.
+
+352
+0:11:58,55 --> 0:12:2,57
+He needs to simplify the jargon into plain language.
+
+353
+0:12:2,57 --> 0:12:3,23
+No problem.
+
+354
+0:12:3,23 --> 0:12:4,45
+Then there's the search function.
+
+355
+0:12:4,45 --> 0:12:5,79
+Including deep thinking.
+
+356
+0:12:5,79 --> 0:12:8,81
+You can take a look at the AI's deep thinking process.
+
+357
+0:12:8,81 --> 0:12:9,9
+Some steps are involved.
+
+358
+0:12:9,9 --> 0:12:12,26
+In the end, it generated an educational document.
+
+359
+0:12:12,26 --> 0:12:14,85
+Firstly, what is macular degeneration?
+
+360
+0:12:14,85 --> 0:12:16,99
+Then, the common causes.
+
+361
+0:12:16,99 --> 0:12:17,91
+It's explained quite accurately.
+
+362
+0:12:17,91 --> 0:12:21,28
+My mom indeed has something similar to a degenerative condition.
+
+363
+0:12:21,28 --> 0:12:22,46
+It's due to her advanced age.
+
+364
+0:12:22,46 --> 0:12:24,58
+Her retina has undergone changes.
+
+365
+0:12:24,58 --> 0:12:27,2
+And it includes some typical symptoms.
+
+366
+0:12:27,2 --> 0:12:30,52
+These symptoms match my mom’s quite well.
+
+367
+0:12:30,52 --> 0:12:33,4
+The next step is how to diagnose it.
+
+368
+0:12:33,4 --> 0:12:35,3
+The next step is the treatment method.
+
+369
+0:12:35,3 --> 0:12:38,7
+Then, the sixth section is about prevention and daily management.
+
+370
+0:12:38,7 --> 0:12:39,21
+He provided some suggestions.
+
+371
+0:12:39,21 --> 0:12:42,99
+Including the differences among various types of macular degeneration.
+
+372
+0:12:42,99 --> 0:12:43,67
+In my opinion,
+
+373
+0:12:43,67 --> 0:12:45,82
+If it's not the case right now that,
+
+374
+0:12:45,82 --> 0:12:47,3
+My mom was just diagnosed with this condition.
+
+375
+0:12:47,3 --> 0:12:48,5
+I have already gained some understanding.
+
+376
+0:12:48,5 --> 0:12:51,18
+But if you’ve just found out you have this condition,
+
+377
+0:12:51,18 --> 0:12:54,13
+I think such a search result would be helpful.
+
+378
+0:12:54,13 --> 0:12:55,75
+will give me a preliminary understanding
+
+379
+0:12:55,75 --> 0:12:58,62
+which will be a great help in learning about the disease
+
+380
+0:12:58,62 --> 0:13:1,3
+so the next step is to continue asking her
+
+381
+0:13:1,3 --> 0:13:3,62
+my mom is scheduled to have surgery in early June
+
+382
+0:13:3,62 --> 0:13:4,74
+I will also return to Beijing
+
+383
+0:13:4,74 --> 0:13:6,14
+and I’ll ask Qwen as well
+
+384
+0:13:6,14 --> 0:13:9,68
+about what precautions should be taken before and after the surgery
+
+385
+0:13:9,68 --> 0:13:12,9
+these questions are definitely better asked to the doctor
+
+386
+0:13:12,9 --> 0:13:13,96
+but the doctor is very busy
+
+387
+0:13:13,96 --> 0:13:15,54
+and may not cover everything
+
+388
+0:13:15,54 --> 0:13:17,26
+Discuss these matters with our family members who are patients
+
+389
+0:13:17,26 --> 0:13:19,73
+So it’s definitely beneficial to do some research yourself first
+
+390
+0:13:19,73 --> 0:13:21,25
+Fortunately, in this issue
+
+391
+0:13:21,25 --> 0:13:24,65
+I’ve asked quite a number of questions, actually
+
+392
+0:13:24,65 --> 0:13:25,77
+And they are rather complex
+
+393
+0:13:25,77 --> 0:13:28,67
+Then I said I want a comprehensive recommendation, right?
+
+394
+0:13:28,67 --> 0:13:30,99
+He is still thinking it over
+
+395
+0:13:30,99 --> 0:13:32,27
+This comprehensive recommendation of mine
+
+396
+0:13:32,27 --> 0:13:34,5
+What I actually want
+
+397
+0:13:34,5 --> 0:13:35,53
+It breaks down into five points
+
+398
+0:13:35,53 --> 0:13:39,25
+One is that he needs to look up the surgery for macular pucker and holes.
+
+399
+0:13:39,25 --> 0:13:40,18
+The indications for the procedure.
+
+400
+0:13:40,18 --> 0:13:42,9
+The main success rates and complication data of the surgery.
+
+401
+0:13:42,9 --> 0:13:45,88
+Also, which ophthalmology hospitals in the country are considered good.
+
+402
+0:13:45,88 --> 0:13:48,12
+And the preoperative preparation and postoperative care.
+
+403
+0:13:48,12 --> 0:13:49,64
+Some important points to note about postoperative recovery.
+
+404
+0:13:49,64 --> 0:13:51,74
+As well as various protective measures.
+
+405
+0:13:51,74 --> 0:13:53,42
+After breaking down the issue, he then proceeded to conduct a thorough search.
+
+406
+0:13:53,42 --> 0:13:54,78
+He carried out a detailed search.
+
+407
+0:13:54,78 --> 0:13:56,18
+During the search process.
+
+408
+0:13:56,18 --> 0:13:58,599
+We can see Quark's unique advantages.
+
+409
+0:13:58,599 --> 0:14:1,379
+Quark is backed by Alibaba's authoritative database.
+
+410
+0:14:1,379 --> 0:14:2,679
+Alibaba's authoritative database
+
+411
+0:14:2,679 --> 0:14:5,399
+has strong advantages in two areas.
+
+412
+0:14:5,399 --> 0:14:6,95
+The first area is health and wellness.
+
+413
+0:14:6,95 --> 0:14:8,39
+The second area is academia.
+
+414
+0:14:8,39 --> 0:14:10,77
+When it comes to the medical issue I searched for,
+
+415
+0:14:10,77 --> 0:14:13,14
+Quark has a vast medical database.
+
+416
+0:14:13,14 --> 0:14:15,14
+It collaborates with over 60 medical institutions for content.
+
+417
+0:14:15,14 --> 0:14:18,22
+Moreover, it has a three-tier review process to enhance content quality.
+
+418
+0:14:18,22 --> 0:14:19,24
+The review mechanism
+
+419
+0:14:19,24 --> 0:14:21,56
+In terms of academic standards, it also has an E level
+
+420
+0:14:21,56 --> 0:14:24,68
+It collaborates with both domestic and international literature databases, including CNKI, Wanfang, and Weipu
+
+421
+0:14:24,68 --> 0:14:27,34
+Therefore, its search results are quite reliable
+
+422
+0:14:27,34 --> 0:14:28,56
+Let's see what it comes up with
+
+423
+0:14:28,56 --> 0:14:30,62
+After deep consideration by Quark
+
+424
+0:14:30,62 --> 0:14:33,59
+It provided several modules
+
+425
+0:14:33,59 --> 0:14:35,77
+The first module is treatment recommendations
+
+426
+0:14:35,77 --> 0:14:38,17
+The second module is the recommendation for ophthalmology hospitals.
+
+427
+0:14:38,17 --> 0:14:39,91
+The third module is about surgical risks
+
+428
+0:14:39,91 --> 0:14:40,87
+There are also complications
+
+429
+0:14:40,87 --> 0:14:43,1
+including preoperative precautions
+
+430
+0:14:43,1 --> 0:14:43,95
+postoperative care
+
+431
+0:14:43,95 --> 0:14:45,27
+care and follow-up
+
+432
+0:14:45,27 --> 0:14:47,14
+and lifestyle considerations
+
+433
+0:14:47,14 --> 0:14:50,87
+as well as the consequences of delayed surgery and other questions
+
+434
+0:14:50,87 --> 0:14:52,69
+This basically covers everything
+
+435
+0:14:52,69 --> 0:14:54,67
+It includes all the issues I mentioned
+
+436
+0:14:54,67 --> 0:14:58,48
+and even addresses some additional questions that might interest me
+
+437
+0:14:58,48 --> 0:14:59,72
+Quark’s response
+
+438
+0:14:59,72 --> 0:15:0,92
+After reading it carefully
+
+439
+0:15:0,92 --> 0:15:1,98
+After a thorough understanding
+
+440
+0:15:1,98 --> 0:15:3,8
+I immediately forwarded it to my mom
+
+441
+0:15:3,8 --> 0:15:6,6
+To help her with some issues regarding this illness
+
+442
+0:15:6,6 --> 0:15:9,199
+And the daily life concerns as well as pre-surgery preparations
+
+443
+0:15:9,199 --> 0:15:11,68
+Kuake will soon be rolling out Deep Search Pro
+
+444
+0:15:11,68 --> 0:15:13,76
+So what exactly is Deep Search Pro?
+
+445
+0:15:13,76 --> 0:15:16,22
+You can think of it as a deep research feature
+
+446
+0:15:16,22 --> 0:15:18,12
+It essentially treats your question
+
+447
+0:15:18,12 --> 0:15:20,52
+As a research project
+
+448
+0:15:20,52 --> 0:15:21,62
+Treat it as a project
+
+449
+0:15:21,62 --> 0:15:24,48
+In the end, it will generate a comprehensive project report
+
+450
+0:15:24,48 --> 0:15:26,64
+It is particularly suitable for those with extensive depth
+
+451
+0:15:26,64 --> 0:15:28,96
+Research questions with in-depth studies
+
+452
+0:15:28,96 --> 0:15:31,48
+So I look forward to Quark launching this feature soon
+
+453
+0:15:31,48 --> 0:15:33,76
+Next, let me show you a demonstration
+
+454
+0:15:45,72 --> 0:15:48,36
+Many people in the AI industry are saying
+
+455
+0:15:48,36 --> 0:15:50,68
+That 2025 is the Year of A-town
+
+456
+0:15:50,68 --> 0:15:54,6
+What I mean by that is the concept of an agent
+
+457
+0:15:54,6 --> 0:15:56,6
+It is very likely to evolve with the development of the AI industry
+
+458
+0:15:56,6 --> 0:15:58,32
+gradually becoming less ambiguous
+
+459
+0:15:58,32 --> 0:16:0,21
+and boundaries may completely disappear
+
+460
+0:16:0,21 --> 0:16:2,73
+it's highly likely that this agent thing will, in the coming years
+
+461
+0:16:2,73 --> 0:16:4,45
+move from specialized applications
+
+462
+0:16:4,45 --> 0:16:7,51
+I clearly know what an AI agent is
+
+463
+0:16:7,51 --> 0:16:9,13
+from such a state
+
+464
+0:16:9,13 --> 0:16:12,53
+it will merge into other AI tools
+
+465
+0:16:12,53 --> 0:16:13,97
+becoming a front-end feature
+
+466
+0:16:13,97 --> 0:16:16,13
+for example, it can be used in searches like this
+
+467
+0:16:16,13 --> 0:16:19,0
+including breaking down problems in AIGC
+
+468
+0:16:19,0 --> 0:16:20,72
+Go ahead and streamline the workflow in advance
+
+469
+0:16:20,72 --> 0:16:22,26
+turning it into a preliminary step
+
+470
+0:16:22,26 --> 0:16:23,5
+Regarding this update of Quark
+
+471
+0:16:23,5 --> 0:16:25,5
+it has introduced deep search for the first time in China
+
+472
+0:16:25,5 --> 0:16:27,75
+I think it's a very interesting and valuable exploration
+
+473
+0:16:27,75 --> 0:16:29,33
+The key is, it's also very practical
+
+474
+0:16:29,33 --> 0:16:32,9
+I recommend everyone give this feature a try.
+
+475
+0:16:32,9 --> 0:16:32,67
+I'm Lao Jiang
+
+476
+0:16:32,67 --> 0:16:33,83
+I'm someone who enjoys figuring things out
+
+477
+0:16:33,83 --> 0:16:36,93
+enjoys sharing their knowledge and insights
+
+478
+0:16:36,93 --> 0:16:38,51
+There's also an UPloader who thinks deeply like this.
+
+479
+0:16:38,51 --> 0:16:42,5
+This year, there will be many updates on the AI industry.
+
+480
+0:16:42,5 --> 0:16:43,37
+We'll explore industry trends.
+
+481
+0:16:43,37 --> 0:16:45,22
+Including some insightful thoughts.
+
+482
+0:16:45,22 --> 0:16:48,3
+And practical feature reviews and explanations.
+
+483
+0:16:48,3 --> 0:16:50,54
+If you find this episode useful,
+
+484
+0:16:50,54 --> 0:16:51,22
+inspiring,
+
+485
+0:16:51,22 --> 0:16:52,2
+Please give me a Triple Combo.
+
+486
+0:16:52,2 --> 0:16:53,4
+And follow me
+
+487
+0:16:53,4 --> 0:16:54,0
+See you in the next episode.
+

@@ -1,0 +1,696 @@
+1
+0:0:0,9 --> 0:0:1,34
+Hello everyone
+
+2
+0:0:1,34 --> 0:0:3,42
+I've been getting more and more into filming with my phone lately
+
+3
+0:0:3,42 --> 0:0:4,7
+There's this really strange thing
+
+4
+0:0:4,7 --> 0:0:8,1
+which is that usually when I turn on the camera, I also turn on the flashlight
+
+5
+0:0:8,1 --> 0:0:9,889
+and then get ready
+
+6
+0:0:9,889 --> 0:0:11,49
+and then grab the memory card
+
+7
+0:0:11,49 --> 0:0:13,109
+and put it into the computer to edit
+
+8
+0:0:13,109 --> 0:0:14,81
+and it just feels so cumbersome
+
+9
+0:0:14,81 --> 0:0:17,79
+In this episode, I'm going to talk about a very simple fact
+
+10
+0:0:17,79 --> 0:0:21,1
+It's an issue that many scholars tend to overlook
+
+11
+0:0:21,1 --> 0:0:22,42
+Speaking of Bilibili
+
+12
+0:0:22,42 --> 0:0:25,48
+a lot of the users are actually college students
+
+13
+0:0:25,48 --> 0:0:27,86
+who have moved on from high school to university
+
+14
+0:0:27,86 --> 0:0:28,56
+to be honest
+
+15
+0:0:28,56 --> 0:0:31,64
+back in high school, you didn't really
+
+16
+0:0:31,64 --> 0:0:32,72
+get into fights or fall in love
+
+17
+0:0:32,72 --> 0:0:34,519
+these kinds of things happened less often
+
+18
+0:0:34,519 --> 0:0:36,719
+one particular skill might have been practiced less
+
+19
+0:0:36,719 --> 0:0:38,879
+Your skills in verbal confrontation might
+
+20
+0:0:38,879 --> 0:0:42,6
+not be as good as those with lower educational backgrounds.
+
+21
+0:0:42,6 --> 0:0:43,98
+However, when entering society,
+
+22
+0:0:43,98 --> 0:0:46,6
+it’s still important to show a certain level of assertiveness.
+
+23
+0:0:46,6 --> 0:0:47,94
+If you’re not assertive
+
+24
+0:0:47,94 --> 0:0:49,4
+and don’t stand up for yourself,
+
+25
+0:0:49,4 --> 0:0:50,1
+if you’re overly polite,
+
+26
+0:0:50,1 --> 0:0:52,42
+you might become everyone’s target.
+
+27
+0:0:52,42 --> 0:0:54,87
+All the tough and exhausting tasks will be assigned to you.
+
+28
+0:0:54,87 --> 0:0:56,55
+Why release aggression?
+
+29
+0:0:56,55 --> 0:0:57,3
+It's simple.
+
+30
+0:0:57,3 --> 0:0:58,63
+Everyone has read 'The Prince', right?
+
+31
+0:0:58,63 --> 0:0:59,87
+I recommend everyone read 'The Prince'.
+
+32
+0:0:59,87 --> 0:1:1,17
+In 'The Prince', there is a point that
+
+33
+0:1:1,17 --> 0:1:3,8
+the cost of betraying a kind person is low.
+
+34
+0:1:3,8 --> 0:1:5,8
+But if you want to betray someone who is extremely wicked,
+
+35
+0:1:5,8 --> 0:1:6,64
+you need to betray them,
+
+36
+0:1:6,64 --> 0:1:8,4
+you usually have to weigh the cost.
+
+37
+0:1:8,4 --> 0:1:9,76
+It's the same with human society.
+
+38
+0:1:9,76 --> 0:1:11,68
+People tend to seek benefits and avoid harm.
+
+39
+0:1:11,68 --> 0:1:13,2
+Once someone is particularly ruthless,
+
+40
+0:1:13,2 --> 0:1:14,3
+extremely fierce,
+
+41
+0:1:14,3 --> 0:1:15,15
+and downright wicked,
+
+42
+0:1:15,15 --> 0:1:16,55
+if you think about bullying them,
+
+43
+0:1:16,55 --> 0:1:17,35
+you need to think twice.
+
+44
+0:1:17,35 --> 0:1:19,229
+Kind people are often seen as easy targets.
+
+45
+0:1:19,229 --> 0:1:21,989
+So once you're labeled as a good person,
+
+46
+0:1:21,989 --> 0:1:23,149
+You are helpful.
+
+47
+0:1:23,149 --> 0:1:24,529
+You care about your colleagues.
+
+48
+0:1:24,529 --> 0:1:26,309
+You are willing to contribute.
+
+49
+0:1:26,309 --> 0:1:31,8
+Then you become the one everyone relies on.
+
+50
+0:1:31,8 --> 0:1:32,68
+No matter if you have a boyfriend or girlfriend,
+
+51
+0:1:32,68 --> 0:1:34,6
+people might see you as someone who can be taken advantage of.
+
+52
+0:1:34,6 --> 0:1:36,6
+And this will continue over time.
+
+53
+0:1:36,6 --> 0:1:38,96
+They will keep testing you.
+
+54
+0:1:38,96 --> 0:1:40,78
+The first thing they test is
+
+55
+0:1:40,78 --> 0:1:41,96
+Do something trivial
+
+56
+0:1:41,96 --> 0:1:43,27
+And then slap you
+
+57
+0:1:43,27 --> 0:1:44,47
+If you don’t fight back
+
+58
+0:1:44,47 --> 0:1:45,55
+You still laugh it off
+
+59
+0:1:45,55 --> 0:1:47,43
+People will treat you worse in the future
+
+60
+0:1:47,43 --> 0:1:48,35
+That’s just how people are
+
+61
+0:1:48,35 --> 0:1:50,63
+They bully those who are easy to bully
+
+62
+0:1:50,63 --> 0:1:52,35
+No matter what kind of person
+
+63
+0:1:52,35 --> 0:1:53,23
+Regardless of good or bad
+
+64
+0:1:53,23 --> 0:1:54,25
+Regardless of strength
+
+65
+0:1:54,25 --> 0:1:56,49
+He will go out and bully others
+
+66
+0:1:56,49 --> 0:1:59,39
+So you don't have to take it too seriously
+
+67
+0:1:59,39 --> 0:2:1,39
+Sometimes, being the bad guy
+
+68
+0:2:1,39 --> 0:2:3,99
+Being someone with a stronger aggressive streak
+
+69
+0:2:3,99 --> 0:2:5,13
+No matter what
+
+70
+0:2:5,13 --> 0:2:7,1
+Even if it's just a matter of attitude
+
+71
+0:2:7,1 --> 0:2:9,29
+You'll find that the people who hassle you
+
+72
+0:2:9,29 --> 0:2:12,18
+Those who make all sorts of demands on you, will suddenly decrease
+
+73
+0:2:12,18 --> 0:2:15,24
+This is also a kind of wisdom and strategy for survival.
+
+74
+0:2:15,24 --> 0:2:17,84
+It's not that we are inherently supposed to be a certain way.
+
+75
+0:2:17,84 --> 0:2:19,4
+But in everyday life,
+
+76
+0:2:19,4 --> 0:2:20,99
+you see me often scolding people on my social media.
+
+77
+0:2:20,99 --> 0:2:22,19
+Frequently scolding people,
+
+78
+0:2:22,19 --> 0:2:23,41
+surely doesn't have a good effect.
+
+79
+0:2:23,41 --> 0:2:25,27
+If leaders or teachers see it, they definitely won't think highly of it.
+
+80
+0:2:25,27 --> 0:2:26,67
+But the issue is precisely this.
+
+81
+0:2:26,67 --> 0:2:28,23
+My promotion
+
+82
+0:2:28,23 --> 0:2:32,34
+Does my career development require the concern of leaders and teachers?
+
+83
+0:2:32,46 --> 0:2:33,58
+No, it doesn't.
+
+84
+0:2:33,58 --> 0:2:37,61
+So, I don't need to respect these people in my interpersonal relationships.
+
+85
+0:2:37,61 --> 0:2:40,67
+I have a one-on-one relationship with everyone.
+
+86
+0:2:40,67 --> 0:2:43,88
+People like me, who are so ruthless and vicious,
+
+87
+0:2:43,88 --> 0:2:45,52
+who are quick to criticize others,
+
+88
+0:2:45,52 --> 0:2:47,66
+actually find it easier to build relationships with others.
+
+89
+0:2:47,66 --> 0:2:48,85
+Some people might say
+
+90
+0:2:48,85 --> 0:2:50,39
+Won't you alienate others this way?
+
+91
+0:2:50,39 --> 0:2:52,94
+Actually, this is still a psychological issue for humans.
+
+92
+0:2:52,94 --> 0:2:54,78
+Someone like me, who is so ruthless and vicious,
+
+93
+0:2:54,78 --> 0:2:57,39
+who gets furious for no reason,
+
+94
+0:2:57,39 --> 0:2:59,81
+suddenly starts being nice to others,
+
+95
+0:2:59,81 --> 0:3:2,74
+suddenly starts speaking to others with exceptional patience,
+
+96
+0:3:2,74 --> 0:3:4,5
+others will feel greatly respected,
+
+97
+0:3:4,5 --> 0:3:7,24
+because such a person with a bad temper,
+
+98
+0:3:7,24 --> 0:3:11,92
+a person with a bad temper actually shows me such respect,
+
+99
+0:3:11,92 --> 0:3:13,839
+is exceptionally courteous.
+
+100
+0:3:13,839 --> 0:3:15,439
+This person is so hard to approach
+
+101
+0:3:15,439 --> 0:3:17,219
+but he's very kind to me
+
+102
+0:3:17,219 --> 0:3:19,339
+he feels special about himself
+
+103
+0:3:19,339 --> 0:3:20,999
+it's like when you were in middle school
+
+104
+0:3:20,999 --> 0:3:23,41
+suddenly someone knows a big brother from outside school
+
+105
+0:3:23,41 --> 0:3:25,53
+this big brother acts all high and mighty to others
+
+106
+0:3:25,53 --> 0:3:27,11
+but when you help him with his homework
+
+107
+0:3:27,11 --> 0:3:29,35
+you find out he's really nice to you
+
+108
+0:3:29,35 --> 0:3:31,19
+and you feel really proud of it
+
+109
+0:3:31,19 --> 0:3:32,35
+Look at all of you
+
+110
+0:3:32,35 --> 0:3:35,399
+trembling in fear in front of the big brother
+
+111
+0:3:35,399 --> 0:3:36,719
+but when I'm in front of the big brother
+
+112
+0:3:36,719 --> 0:3:38,719
+I'm his best little brother
+
+113
+0:3:38,719 --> 0:3:40,54
+I might not show it in front of him
+
+114
+0:3:40,54 --> 0:3:43,0
+but behind his back, everyone calls me the teacher
+
+115
+0:3:43,0 --> 0:3:43,92
+it's this kind of feeling
+
+116
+0:3:43,92 --> 0:3:45,48
+a lot of times it's like this
+
+117
+0:3:45,48 --> 0:3:47,74
+the more you seem hard to approach
+
+118
+0:3:47,74 --> 0:3:51,24
+People who interact with you will feel highly respected.
+
+119
+0:3:51,24 --> 0:3:52,34
+Exactly.
+
+120
+0:3:52,34 --> 0:3:54,4
+Often times,
+
+121
+0:3:54,4 --> 0:3:54,64
+Let me tell you,
+
+122
+0:3:54,64 --> 0:3:55,74
+The path of life,
+
+123
+0:3:55,74 --> 0:3:58,24
+is not always laid out in books.
+
+124
+0:3:58,24 --> 0:4:0,72
+A lot of things are learned through practice.
+
+125
+0:4:0,72 --> 0:4:3,36
+You'll see if it really works out in practice.
+
+126
+0:4:3,36 --> 0:4:6,23
+Often, things don't turn out that way in practice.
+
+127
+0:4:6,23 --> 0:4:9,41
+In practice, you often have to endure hardships.
+
+128
+0:4:9,41 --> 0:4:10,77
+You have to face setbacks.
+
+129
+0:4:10,77 --> 0:4:12,2
+You have to make compromises.
+
+130
+0:4:12,2 --> 0:4:13,82
+Why do books write it that way?
+
+131
+0:4:13,82 --> 0:4:15,92
+Because books are for the majority.
+
+132
+0:4:15,92 --> 0:4:19,38
+The true experiences of a select few are different.
+
+133
+0:4:19,38 --> 0:4:20,58
+So this tells you,
+
+134
+0:4:20,58 --> 0:4:22,54
+Why being a good person in society
+
+135
+0:4:22,54 --> 0:4:23,46
+is often risky.
+
+136
+0:4:23,46 --> 0:4:25,98
+It's like being a herbivore in nature
+
+137
+0:4:25,98 --> 0:4:27,6
+You don't have any aggression
+
+138
+0:4:27,6 --> 0:4:28,34
+You lose everything
+
+139
+0:4:28,34 --> 0:4:30,72
+Because humans are still, at heart, wild animals
+
+140
+0:4:30,72 --> 0:4:33,0
+Still more animalistic in nature
+
+141
+0:4:33,0 --> 0:4:35,1
+Humans still have the urge to reproduce and mate
+
+142
+0:4:35,1 --> 0:4:37,36
+And various desires and needs for competition and conflict
+
+143
+0:4:37,36 --> 0:4:38,48
+In this society
+
+144
+0:4:38,48 --> 0:4:39,4
+What stance do you take
+
+145
+0:4:39,4 --> 0:4:41,5
+This determines what kind of species you are
+
+146
+0:4:41,5 --> 0:4:42,7
+It's the same for people
+
+147
+0:4:42,7 --> 0:4:44,44
+First, they conform to the laws of the universe
+
+148
+0:4:44,44 --> 0:4:45,36
+The laws of nature
+
+149
+0:4:45,36 --> 0:4:46,2
+The laws of the jungle
+
+150
+0:4:46,2 --> 0:4:49,1
+And finally, human moral standards and such
+
+151
+0:4:49,1 --> 0:4:51,54
+Human moral standards are for educating people
+
+152
+0:4:51,54 --> 0:4:53,14
+For governing society
+
+153
+0:4:53,14 --> 0:4:56,61
+To ensure that society is relatively stable, harmonious, and progresses forward
+
+154
+0:4:56,61 --> 0:4:58,35
+He is indifferent to individual rises and falls.
+
+155
+0:4:58,35 --> 0:4:59,49
+He doesn't care about them.
+
+156
+0:4:59,49 --> 0:5:2,9
+So, a rule established by usage in society
+
+157
+0:5:2,9 --> 0:5:4,299
+exists to ensure social stability.
+
+158
+0:5:4,299 --> 0:5:6,659
+But when it comes to your personal development,
+
+159
+0:5:6,659 --> 0:5:8,939
+you can't follow the norms that maintain stability.
+
+160
+0:5:8,939 --> 0:5:9,6
+Do you understand?
+
+161
+0:5:9,6 --> 0:5:11,88
+Because stability means no change in structure,
+
+162
+0:5:11,88 --> 0:5:14,53
+but your personal development requires structural changes.
+
+163
+0:5:14,53 --> 0:5:17,25
+However, in a plant, nutrients move gradually from the roots up through the stem and leaves.
+
+164
+0:5:17,25 --> 0:5:19,77
+So you need to understand that
+
+165
+0:5:19,77 --> 0:5:20,84
+from the perspective of your personal development,
+
+166
+0:5:20,84 --> 0:5:22,58
+the way of the world is to take advantage of the situation and act against it.
+
+167
+0:5:22,58 --> 0:5:24,82
+No matter what,
+
+168
+0:5:24,82 --> 0:5:26,4
+many of my new followers,
+
+169
+0:5:26,4 --> 0:5:27,6
+no matter what,
+
+170
+0:5:27,6 --> 0:5:28,38
+you often have to go against conventional wisdom
+
+171
+0:5:28,38 --> 0:5:31,43
+to achieve remarkable results.
+
+172
+0:5:31,43 --> 0:5:33,67
+Otherwise, you'll spend your whole life stuck in your current situation,
+
+173
+0:5:33,67 --> 0:5:36,39
+unable to advance to a higher level.
+
+174
+0:5:36,39 --> 0:5:39,4
+There's no way to move up in this class.
+
