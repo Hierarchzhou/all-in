@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP万中无一测评 - 你的IP够抽象吗？</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #040614;
+            --panel: rgba(10, 15, 32, 0.82);
+            --primary: #6c79ff;
+            --primary-soft: rgba(112, 122, 255, 0.28);
+            --accent: #22d3ee;
+            --success: #34d399;
+            --warning: #fbbf24;
+            --danger: #f87171;
+            --text: #e2e8f0;
+            --text-muted: rgba(226, 232, 240, 0.68);
+            --border: rgba(148, 163, 255, 0.2);
+            --tiltX: 0deg;
+            --tiltY: 0deg;
+            --glowX: 50vw;
+            --glowY: 50vh;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', 'Inter', 'Microsoft YaHei', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 96px 24px 140px;
+            position: relative;
+            overflow-x: hidden;
+            overflow-y: auto;
+            perspective: 1600px;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: -15%;
+            background:
+                radial-gradient(ellipse at 10% 10%, rgba(103, 232, 249, 0.22), transparent 55%),
+                radial-gradient(ellipse at 80% 0%, rgba(167, 139, 250, 0.28), transparent 60%),
+                radial-gradient(circle at 50% 90%, rgba(56, 189, 248, 0.16), transparent 70%),
+                linear-gradient(180deg, #070b1a 0%, #020510 60%, #000 100%);
+            z-index: -4;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(transparent 0, rgba(100, 116, 255, 0.05) 1px),
+                linear-gradient(90deg, transparent 0, rgba(100, 116, 255, 0.05) 1px);
+            background-size: 180px 180px;
+            opacity: 0.35;
+            mix-blend-mode: screen;
+            animation: drift 32s linear infinite;
+            z-index: -2;
+        }
+
+        @keyframes drift {
+            from {
+                background-position: 0 0, 0 0;
+            }
+            to {
+                background-position: 360px 360px, -360px 0;
+            }
+        }
+
+        #bgParticles {
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: -3;
+        }
+
+        .mouse-glow {
+            position: fixed;
+            top: var(--glowY);
+            left: var(--glowX);
+            width: clamp(140px, 34vw, 520px);
+            height: clamp(140px, 34vw, 520px);
+            pointer-events: none;
+            background: radial-gradient(circle, rgba(96, 165, 250, 0.25) 0%, rgba(56, 189, 248, 0.08) 45%, transparent 70%);
+            mix-blend-mode: screen;
+            transform: translate(-50%, -50%);
+            transition: transform 0.35s ease, opacity 0.4s ease;
+            opacity: 0.22;
+            z-index: -1;
+        }
+
+        .mouse-glow.hidden {
+            opacity: 0.08;
+        }
+
+        .container {
+            max-width: 820px;
+            width: 100%;
+            padding: 56px 56px 48px;
+            border-radius: 28px;
+            position: relative;
+            z-index: 0;
+            overflow: hidden;
+            margin: 0 auto;
+            transform: perspective(1400px) rotateX(var(--tiltX)) rotateY(var(--tiltY));
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.18, 0.55, 0, 1);
+            border: 1px solid rgba(99, 102, 241, 0.35);
+            box-shadow: 0 40px 90px rgba(15, 23, 42, 0.55);
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.55), rgba(56, 189, 248, 0.25));
+            opacity: 0.85;
+            z-index: -2;
+        }
+
+        .container::after {
+            content: '';
+            position: absolute;
+            inset: 1.5px;
+            border-radius: inherit;
+            background: var(--panel);
+            backdrop-filter: blur(34px);
+            z-index: -1;
+        }
+
+        h1 {
+            font-size: clamp(2.4rem, 4vw, 3rem);
+            text-align: center;
+            letter-spacing: 0.01em;
+        }
+
+        h1 span {
+            background: linear-gradient(90deg, #60a5fa 0%, #a855f7 50%, #22d3ee 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 10px 16px;
+            border-radius: 999px;
+            border: 1px solid rgba(94, 234, 212, 0.24);
+            background: rgba(15, 118, 110, 0.14);
+            color: rgba(45, 212, 191, 0.85);
+            margin: 0 auto 28px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin: 18px auto 28px;
+            font-size: 16px;
+            max-width: 520px;
+            line-height: 1.6;
+        }
+
+        .feature-strip {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 36px;
+        }
+
+        .feature-chip {
+            background: rgba(99, 102, 241, 0.14);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 999px;
+            padding: 10px 20px;
+            font-size: 14px;
+            color: rgba(226, 232, 240, 0.85);
+            backdrop-filter: blur(12px);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 10px 24px rgba(59, 130, 246, 0.15);
+            animation: float 10s ease-in-out infinite;
+        }
+
+        .feature-chip:nth-child(2) {
+            animation-delay: 1.2s;
+        }
+
+        .feature-chip:nth-child(3) {
+            animation-delay: 2.4s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+        .ip-box {
+            background: rgba(15, 23, 42, 0.72);
+            border: 1px solid var(--primary-soft);
+            border-radius: 20px;
+            padding: 28px 32px;
+            text-align: center;
+            margin-bottom: 32px;
+            box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.6), 0 18px 42px rgba(14, 116, 244, 0.12);
+        }
+
+        .ip-label {
+            color: var(--text-muted);
+            font-size: 14px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .ip-value {
+            font-family: 'Space Grotesk', 'Courier New', monospace;
+            font-size: 32px;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            color: #f8fafc;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 20px;
+            border-radius: 16px;
+            border: none;
+            font-size: 18px;
+            font-weight: 600;
+            color: #0f172a;
+            background: linear-gradient(120deg, #60a5fa 0%, #818cf8 45%, #22d3ee 100%);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.25);
+            cursor: pointer;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .btn:hover:not(:disabled) {
+            transform: translateY(-3px) scale(1.01);
+            box-shadow: 0 25px 50px rgba(56, 189, 248, 0.28);
+        }
+
+        .btn:disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .btn:focus-visible {
+            outline: 2px solid rgba(96, 165, 250, 0.45);
+            outline-offset: 4px;
+        }
+
+        .loading {
+            text-align: center;
+            margin: 32px 0;
+            display: none;
+            color: var(--text-muted);
+        }
+
+        .loading.show {
+            display: block;
+        }
+
+        .loading p {
+            font-size: 15px;
+            letter-spacing: 0.02em;
+        }
+
+        .spinner {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            border: 4px solid rgba(99, 102, 241, 0.2);
+            border-top-color: #38bdf8;
+            margin: 0 auto 18px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .result {
+            margin-top: 40px;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+            animation: slideIn 0.7s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .result-card {
+            position: relative;
+            padding: 40px;
+            border-radius: 22px;
+            border: 1px solid var(--border);
+            background: linear-gradient(145deg, rgba(17, 24, 45, 0.92), rgba(12, 17, 35, 0.82));
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(5, 10, 30, 0.55);
+        }
+
+        .result-card::before {
+            content: '';
+            position: absolute;
+            width: 340px;
+            height: 340px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(96, 165, 250, 0.38), transparent 60%);
+            top: -160px;
+            right: -120px;
+            filter: blur(0px);
+            opacity: 0.6;
+            z-index: 0;
+        }
+
+        .result-card.perfect {
+            border-color: rgba(52, 211, 153, 0.45);
+            box-shadow: 0 35px 70px rgba(34, 197, 94, 0.35);
+        }
+
+        .result-card.perfect::before {
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.4), transparent 60%);
+        }
+
+        .result-card.good {
+            border-color: rgba(129, 140, 248, 0.45);
+            box-shadow: 0 35px 70px rgba(96, 165, 250, 0.28);
+        }
+
+        .result-card.normal {
+            border-color: rgba(250, 204, 21, 0.3);
+            box-shadow: 0 30px 60px rgba(251, 191, 36, 0.22);
+        }
+
+        .result-card.normal::before {
+            background: radial-gradient(circle, rgba(251, 191, 36, 0.32), transparent 60%);
+        }
+
+        .result-card.bad {
+            border-color: rgba(248, 113, 113, 0.35);
+            box-shadow: 0 30px 60px rgba(248, 113, 113, 0.25);
+        }
+
+        .result-card.bad::before {
+            background: radial-gradient(circle, rgba(248, 113, 113, 0.32), transparent 60%);
+        }
+
+        .result-emoji {
+            font-size: 62px;
+            text-align: center;
+            margin-bottom: 18px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .result-title {
+            font-size: 30px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .result-subtitle {
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 26px;
+            color: var(--text-muted);
+            position: relative;
+            z-index: 1;
+        }
+
+        .result-desc {
+            font-size: 16px;
+            line-height: 1.8;
+            background: rgba(15, 23, 42, 0.65);
+            border: 1px solid rgba(99, 102, 241, 0.16);
+            padding: 22px;
+            border-radius: 16px;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .services {
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-item {
+            background: rgba(12, 18, 38, 0.72);
+            border: 1px solid rgba(148, 163, 255, 0.18);
+            padding: 14px 18px;
+            margin: 10px 0;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 15px;
+        }
+
+        .service-name {
+            font-weight: 500;
+            color: rgba(226, 232, 240, 0.88);
+        }
+
+        .service-status {
+            font-size: 22px;
+        }
+
+        .info-section {
+            margin-top: 28px;
+            background: rgba(8, 13, 28, 0.8);
+            border-radius: 18px;
+            border: 1px solid rgba(148, 163, 255, 0.18);
+            padding: 24px 26px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .info-title {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 18px;
+            letter-spacing: 0.06em;
+            color: rgba(148, 163, 255, 0.9);
+            text-transform: uppercase;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(148, 163, 255, 0.1);
+            color: rgba(226, 232, 240, 0.85);
+            font-size: 15px;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: rgba(148, 163, 255, 0.75);
+            letter-spacing: 0.03em;
+        }
+
+        .info-value {
+            font-weight: 600;
+        }
+
+        .share-btn {
+            width: 100%;
+            padding: 16px;
+            background: rgba(96, 165, 250, 0.12);
+            color: #bfdbfe;
+            border: 1px solid rgba(96, 165, 250, 0.25);
+            border-radius: 14px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .share-btn:hover {
+            background: rgba(96, 165, 250, 0.2);
+            color: #e0f2fe;
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(96, 165, 250, 0.22);
+        }
+
+        .share-btn:focus-visible {
+            outline: 2px solid rgba(96, 165, 250, 0.45);
+            outline-offset: 4px;
+        }
+
+        .footer-note {
+            margin-top: 48px;
+            text-align: center;
+            color: rgba(148, 163, 255, 0.5);
+            font-size: 12px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 720px) {
+            body {
+                padding: 48px 16px;
+            }
+
+            .container {
+                padding: 36px 24px 32px;
+                border-radius: 22px;
+            }
+
+            .feature-chip {
+                font-size: 13px;
+                padding: 9px 18px;
+            }
+
+            .ip-value {
+                font-size: 26px;
+            }
+
+            .btn {
+                font-size: 16px;
+                padding: 18px;
+            }
+
+            .result-card {
+                padding: 32px 24px;
+            }
+
+            .service-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .service-status {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="bgParticles" aria-hidden="true"></canvas>
+    <div class="mouse-glow hidden" id="mouseGlow" aria-hidden="true"></div>
+    <div class="container">
+        <div class="badge">AI NETWORK INTELLIGENCE</div>
+        <h1><span>IP万中无一</span> 测评引擎</h1>
+        <p class="subtitle">实时解析你的出口网络属性，精准匹配 Grok、GPT、Gemini、Sora 等生成式 AI 服务的兼容性。</p>
+
+        <div class="feature-strip">
+            <div class="feature-chip">⚡ 实时打分</div>
+            <div class="feature-chip">🛰️ 区域合规洞察</div>
+            <div class="feature-chip">🔐 住宅IP识别</div>
+        </div>
+
+        <div class="ip-box">
+            <div class="ip-label">你的出口IP</div>
+            <div class="ip-value" id="ipAddress">正在获取...</div>
+        </div>
+
+        <button class="btn" id="testBtn" onclick="startTest()">
+            启动深度测评
+        </button>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>我们正在解析节点画像…</p>
+        </div>
+
+        <div class="result" id="result"></div>
+
+        <div class="footer-note">Designed for AI Era Network Readiness</div>
+    </div>
+
+    <script>
+        let userIP = '';
+        let ipInfo = {};
+
+        // 获取IP地址（使用多个备用API）
+        async function getUserIP() {
+            const apis = [
+                'https://api.ipify.org?format=json',
+                'https://api.ip.sb/ip',
+                'https://ifconfig.me/ip',
+                'https://icanhazip.com'
+            ];
+
+            for (let api of apis) {
+                try {
+                    const response = await fetch(api);
+                    if (api.includes('ipify')) {
+                        const data = await response.json();
+                        userIP = data.ip;
+                    } else {
+                        userIP = (await response.text()).trim();
+                    }
+
+                    if (userIP) {
+                        document.getElementById('ipAddress').textContent = userIP;
+                        return;
+                    }
+                } catch (e) {
+                    continue;
+                }
+            }
+
+            document.getElementById('ipAddress').textContent = '无法获取';
+        }
+
+        // 开始测试
+        async function startTest() {
+            const btn = document.getElementById('testBtn');
+            const loading = document.getElementById('loading');
+            const result = document.getElementById('result');
+
+            btn.disabled = true;
+            loading.classList.add('show');
+            result.classList.remove('show');
+
+            try {
+                // 尝试多个IP信息API
+                await getIPInfo();
+
+                setTimeout(() => {
+                    loading.classList.remove('show');
+                    showResult();
+                    btn.disabled = false;
+                }, 1500);
+
+            } catch (error) {
+                loading.classList.remove('show');
+                alert('检测失败，请检查网络连接后重试');
+                btn.disabled = false;
+            }
+        }
+
+        // 获取IP详细信息
+        async function getIPInfo() {
+            const apis = [
+                `https://ipapi.co/${userIP}/json/`,
+                `http://ip-api.com/json/${userIP}`,
+                `https://ipinfo.io/${userIP}/json`
+            ];
+
+            for (let api of apis) {
+                try {
+                    const response = await fetch(api);
+                    const data = await response.json();
+
+                    // 统一数据格式
+                    ipInfo = {
+                        country: data.country_name || data.country || data.countryCode || '未知',
+                        city: data.city || '未知',
+                        org: data.org || data.isp || '未知',
+                        asn: data.asn || data.as || '未知'
+                    };
+
+                    return;
+                } catch (e) {
+                    continue;
+                }
+            }
+
+            // 如果所有API都失败，使用默认值
+            ipInfo = {
+                country: '未知',
+                city: '未知',
+                org: '未知',
+                asn: '未知'
+            };
+        }
+
+        // 评分算法
+        function calculateScore() {
+            let score = 0;
+            const country = ipInfo.country;
+            const org = ipInfo.org.toLowerCase();
+
+            // 地区评分
+            const perfectCountries = ['United States', 'US', 'USA'];
+            const goodCountries = ['United Kingdom', 'UK', 'GB', 'Canada', 'CA', 'Germany', 'DE', 'France', 'FR'];
+            const okCountries = ['Japan', 'JP', 'Singapore', 'SG', 'Australia', 'AU'];
+
+            if (perfectCountries.some(c => country.includes(c))) {
+                score += 50;
+            } else if (goodCountries.some(c => country.includes(c))) {
+                score += 35;
+            } else if (okCountries.some(c => country.includes(c))) {
+                score += 20;
+            }
+
+            // 运营商评分（非代理/机房加分）
+            const badKeywords = ['vpn', 'proxy', 'hosting', 'datacenter', 'cloud', 'server'];
+            const hasBadKeyword = badKeywords.some(keyword => org.includes(keyword));
+
+            if (!hasBadKeyword) {
+                score += 30; // 住宅IP加分
+            }
+
+            // 运营商质量加分
+            const goodProviders = ['comcast', 'verizon', 'att', 'spectrum', 'charter', 'bt', 'virgin', 'sky'];
+            if (goodProviders.some(provider => org.includes(provider))) {
+                score += 20;
+            }
+
+            return score;
+        }
+
+        // 显示结果
+        function showResult() {
+            const score = calculateScore();
+            const result = document.getElementById('result');
+
+            let level, emoji, title, subtitle, description, services;
+
+            if (score >= 80) {
+                level = 'perfect';
+                emoji = '🔥';
+                title = '卧槽！你这IP是偷马斯克的吗？';
+                subtitle = '全平台无脑冲，AI界的VIP通行证';
+                description = '行吧，承认你赢了。你这IP纯得跟刚出厂的iPhone似的，美国原装住宅IP，Grok都得叫你一声"爷"。这配置去搞AI，就像开高达打蚊子，纯纯的降维打击。不过说实话，有这IP不去薅羊毛真是浪费了。';
+                services = [
+                    { name: 'Grok (X AI)', status: '✅' },
+                    { name: 'ChatGPT / GPT-4', status: '✅' },
+                    { name: 'Claude Pro', status: '✅' },
+                    { name: 'Gemini Advanced', status: '✅' },
+                    { name: 'Sora (如有权限)', status: '✅' }
+                ];
+            } else if (score >= 50) {
+                level = 'good';
+                emoji = '😎';
+                title = '还行吧，至少不是纯废物';
+                subtitle = '能用，但算不上优雅';
+                description = '你这IP属于那种——能上，但总感觉差点意思。就像开着二手宝马，表面光鲜，实际上时不时抽风。GPT能用，Grok能聊，但偶尔给你来个验证码，提醒你"兄弟，你还不够格"。想要丝滑体验？要么加钱换更好的，要么继续忍着这磕磕绊绊的人生。';
+                services = [
+                    { name: 'Grok (X AI)', status: '✅' },
+                    { name: 'ChatGPT / GPT-4', status: '✅' },
+                    { name: 'Claude Pro', status: '✅' },
+                    { name: 'Gemini Advanced', status: '⚠️' },
+                    { name: 'Sora (如有权限)', status: '⚠️' }
+                ];
+            } else if (score >= 20) {
+                level = 'normal';
+                emoji = '🤡';
+                title = '兄弟，你这IP是从拼多多批发的？';
+                subtitle = '能连上网已经是奇迹了';
+                description = '怎么说呢，你这IP就像是——理论上可以开车，但实际上每过一个红绿灯都得推着走。GPT？要验证。Grok？看心情。Claude？直接摆烂。你现在的状态就是"我能上网，但网不想让我上AI"。建议：要么去搞个人样的VPN，要么就别折腾了，回家刷刷抖音得了。';
+                services = [
+                    { name: 'Grok (X AI)', status: '⚠️' },
+                    { name: 'ChatGPT / GPT-4', status: '⚠️' },
+                    { name: 'Claude Pro', status: '❌' },
+                    { name: 'Gemini Advanced', status: '⚠️' },
+                    { name: 'Sora (如有权限)', status: '❌' }
+                ];
+            } else {
+                level = 'bad';
+                emoji = '💀';
+                title = '哥们，你这是来搞笑的吧？';
+                subtitle = 'AI看到你的IP直接拉黑';
+                description = '说真的，我都不知道该怎么吐槽了。你这IP估计是从某个地下机房批量采购的吧？或者你现在人在朝鲜？连Grok都不想搭理你，GPT看到你直接404，Claude装死，Gemini当你不存在。你现在的处境就是——"全世界的AI都在联合封杀我"。兄弟醒醒，别挣扎了，赶紧换个正经IP吧，不然你这辈子都只能跟本地AI聊天了。';
+                services = [
+                    { name: 'Grok (X AI)', status: '❌' },
+                    { name: 'ChatGPT / GPT-4', status: '❌' },
+                    { name: 'Claude Pro', status: '❌' },
+                    { name: 'Gemini Advanced', status: '❌' },
+                    { name: 'Sora (如有权限)', status: '❌' }
+                ];
+            }
+
+            const html = `
+                <div class="result-card ${level}">
+                    <div class="result-emoji">${emoji}</div>
+                    <div class="result-title">${title}</div>
+                    <div class="result-subtitle">${subtitle}</div>
+                    <div class="result-desc">${description}</div>
+
+                    <div class="services">
+                        <div style="font-weight: bold; margin-bottom: 10px;">AI服务兼容性：</div>
+                        ${services.map(s => `
+                            <div class="service-item">
+                                <span class="service-name">${s.name}</span>
+                                <span class="service-status">${s.status}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+
+                    <div class="info-section">
+                        <div class="info-title">📊 IP详细信息</div>
+                        <div class="info-item">
+                            <span class="info-label">IP地址</span>
+                            <span class="info-value">${userIP}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">国家/地区</span>
+                            <span class="info-value">${ipInfo.country}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">城市</span>
+                            <span class="info-value">${ipInfo.city}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">运营商</span>
+                            <span class="info-value">${ipInfo.org}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">质量评分</span>
+                            <span class="info-value">${score}/100</span>
+                        </div>
+                    </div>
+
+                    <button class="share-btn" onclick="shareResult()">
+                        📤 分享我的测评结果
+                    </button>
+                </div>
+            `;
+
+            result.innerHTML = html;
+            result.classList.add('show');
+        }
+
+        function shareResult() {
+            const score = calculateScore();
+            const text = `我的IP测评结果：${score}分\n\nIP: ${userIP}\n地区: ${ipInfo.country}\n\n快来测测你的IP：${window.location.href}`;
+
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text);
+                alert('结果已复制到剪贴板！');
+            } else {
+                alert(text);
+            }
+        }
+
+        // 动态粒子背景与鼠标交互
+        const rootElement = document.documentElement;
+        const mouseGlow = document.getElementById('mouseGlow');
+        const pointerState = { x: 0, y: 0 };
+        let glowFadeTimeout;
+        let pointerEffectsEnabled = false;
+
+        function handlePointerMove(event) {
+            const xRatio = event.clientX / window.innerWidth - 0.5;
+            const yRatio = event.clientY / window.innerHeight - 0.5;
+
+            pointerState.x = xRatio;
+            pointerState.y = yRatio;
+
+            rootElement.style.setProperty('--tiltY', `${xRatio * 6}deg`);
+            rootElement.style.setProperty('--tiltX', `${-yRatio * 6}deg`);
+            rootElement.style.setProperty('--glowX', `${event.clientX}px`);
+            rootElement.style.setProperty('--glowY', `${event.clientY}px`);
+
+            mouseGlow.classList.remove('hidden');
+
+            if (glowFadeTimeout) {
+                clearTimeout(glowFadeTimeout);
+            }
+
+            glowFadeTimeout = setTimeout(() => {
+                mouseGlow.classList.add('hidden');
+                glowFadeTimeout = null;
+            }, 2000);
+        }
+
+        function handlePointerOut(event) {
+            if (!event.relatedTarget || event.relatedTarget.nodeName === 'HTML') {
+                resetPointer();
+            }
+        }
+
+        function resetPointer() {
+            pointerState.x = 0;
+            pointerState.y = 0;
+            rootElement.style.setProperty('--tiltX', '0deg');
+            rootElement.style.setProperty('--tiltY', '0deg');
+            rootElement.style.setProperty('--glowX', '50vw');
+            rootElement.style.setProperty('--glowY', '50vh');
+
+            if (glowFadeTimeout) {
+                clearTimeout(glowFadeTimeout);
+                glowFadeTimeout = null;
+            }
+            mouseGlow.classList.add('hidden');
+        }
+
+        const finePointerQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+
+        function enablePointerEffects() {
+            if (pointerEffectsEnabled) return;
+            window.addEventListener('pointermove', handlePointerMove, { passive: true });
+            window.addEventListener('mouseout', handlePointerOut, { passive: true });
+            mouseGlow.style.display = '';
+            pointerEffectsEnabled = true;
+        }
+
+        function disablePointerEffects() {
+            if (!pointerEffectsEnabled) return;
+            window.removeEventListener('pointermove', handlePointerMove);
+            window.removeEventListener('mouseout', handlePointerOut);
+            pointerEffectsEnabled = false;
+            resetPointer();
+            mouseGlow.style.display = 'none';
+        }
+
+        if (finePointerQuery.matches) {
+            enablePointerEffects();
+        } else {
+            mouseGlow.style.display = 'none';
+        }
+
+        const pointerQueryListener = (event) => {
+            if (event.matches) {
+                enablePointerEffects();
+            } else {
+                disablePointerEffects();
+            }
+        };
+
+        if (typeof finePointerQuery.addEventListener === 'function') {
+            finePointerQuery.addEventListener('change', pointerQueryListener);
+        } else if (typeof finePointerQuery.addListener === 'function') {
+            finePointerQuery.addListener(pointerQueryListener);
+        }
+
+        const canvas = document.getElementById('bgParticles');
+        const ctx = canvas.getContext('2d');
+
+        if (!ctx) {
+            canvas.style.display = 'none';
+        } else {
+            let particles = [];
+            let animationFrame;
+            let lastTimestamp = 0;
+
+            function calculateParticleCount() {
+                if (window.innerWidth <= 540) return 80;
+                if (window.innerWidth <= 1024) return 140;
+                return 200;
+            }
+
+            function createParticle() {
+                return {
+                    x: Math.random() * window.innerWidth,
+                    y: Math.random() * window.innerHeight,
+                    depth: Math.random(),
+                    size: 0.6 + Math.random() * 1.8,
+                    drift: (Math.random() - 0.5) * 0.5,
+                    hue: 190 + Math.random() * 70
+                };
+            }
+
+            function initParticles(count) {
+                particles = Array.from({ length: count }, createParticle);
+            }
+
+            function resizeCanvas() {
+                const dpr = Math.min(window.devicePixelRatio || 1, 2);
+                canvas.width = window.innerWidth * dpr;
+                canvas.height = window.innerHeight * dpr;
+                canvas.style.width = `${window.innerWidth}px`;
+                canvas.style.height = `${window.innerHeight}px`;
+
+                if (ctx.resetTransform) {
+                    ctx.resetTransform();
+                } else {
+                    ctx.setTransform(1, 0, 0, 1, 0, 0);
+                }
+
+                ctx.scale(dpr, dpr);
+                initParticles(calculateParticleCount());
+                lastTimestamp = 0;
+            }
+
+            function renderParticles(timestamp) {
+                animationFrame = requestAnimationFrame(renderParticles);
+                if (!particles.length) return;
+
+                if (!lastTimestamp) {
+                    lastTimestamp = timestamp;
+                }
+
+                const delta = Math.min(timestamp - lastTimestamp, 50);
+                lastTimestamp = timestamp;
+
+                ctx.globalCompositeOperation = 'source-over';
+                ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+                ctx.globalCompositeOperation = 'lighter';
+
+                const parallaxStrength = 18;
+
+                for (const particle of particles) {
+                    particle.y += (0.12 + particle.depth * 0.9) * (delta / 16);
+                    particle.x += particle.drift * (delta / 16) + pointerState.x * particle.depth * 0.6;
+                    particle.drift += (Math.random() - 0.5) * 0.002;
+
+                    if (particle.y > window.innerHeight + 40) {
+                        particle.y = -20;
+                        particle.x = Math.random() * window.innerWidth;
+                    }
+
+                    if (particle.x > window.innerWidth + 40) {
+                        particle.x = -40;
+                    } else if (particle.x < -40) {
+                        particle.x = window.innerWidth + 40;
+                    }
+
+                    const drawX = particle.x + pointerState.x * particle.depth * parallaxStrength;
+                    const drawY = particle.y + pointerState.y * particle.depth * parallaxStrength;
+                    const alpha = 0.16 + particle.depth * 0.25;
+                    const radius = particle.size + particle.depth * 1.6;
+
+                    ctx.beginPath();
+                    ctx.fillStyle = `hsla(${particle.hue}, 90%, 72%, ${alpha})`;
+                    ctx.shadowColor = `hsla(${particle.hue}, 100%, 75%, ${alpha})`;
+                    ctx.shadowBlur = 12 + particle.depth * 28;
+                    ctx.arc(drawX, drawY, radius, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                ctx.shadowBlur = 0;
+                ctx.globalCompositeOperation = 'source-over';
+            }
+
+            function startParticles() {
+                if (animationFrame) {
+                    cancelAnimationFrame(animationFrame);
+                }
+                resizeCanvas();
+                animationFrame = requestAnimationFrame(renderParticles);
+            }
+
+            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+            function handleMotionPreference(event) {
+                if (event.matches) {
+                    if (animationFrame) {
+                        cancelAnimationFrame(animationFrame);
+                        animationFrame = null;
+                    }
+                    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+                    canvas.style.opacity = '0';
+                } else {
+                    canvas.style.opacity = '1';
+                    startParticles();
+                }
+            }
+
+            const handleResize = () => {
+                if (!reducedMotion.matches) {
+                    startParticles();
+                }
+            };
+
+            if (!reducedMotion.matches) {
+                startParticles();
+            } else {
+                canvas.style.opacity = '0';
+            }
+
+            window.addEventListener('resize', handleResize);
+
+            if (typeof reducedMotion.addEventListener === 'function') {
+                reducedMotion.addEventListener('change', handleMotionPreference);
+            } else if (typeof reducedMotion.addListener === 'function') {
+                reducedMotion.addListener(handleMotionPreference);
+            }
+        }
+
+        window.onload = getUserIP;
+    </script>
+</body>
+</html>
