@@ -1,0 +1,13 @@
+# 音频翻译工具依赖
+
+# 语音识别
+openai-whisper
+
+# Claude API
+anthropic
+
+# 文本转语音（免费）
+edge-tts
+
+# 可选：如果需要使用 ElevenLabs（付费，音质更好，支持音色克隆）
+# elevenlabs

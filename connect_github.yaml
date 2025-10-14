@@ -1,0 +1,73 @@
+# 连接 GitHub 并操作仓库的任务
+
+max_instances: 2
+
+tasks:
+  - id: "github-list-repos"
+    name: "列出你的 GitHub 仓库"
+    prompt: |
+      请帮我列出我的 GitHub 仓库：
+
+      方法1: 如果有 GH_TOKEN 环境变量
+      ```bash
+      gh repo list Hierarchzhou --limit 20
+      ```
+
+      方法2: 使用 git 命令查看本地仓库
+      ```bash
+      find /mnt/c/Users/Administrator -name ".git" -type d 2>/dev/null | head -10
+      ```
+
+      方法3: 检查 SSH 密钥
+      ```bash
+      ls -la ~/.ssh/
+      cat ~/.ssh/config 2>/dev/null || echo "No SSH config"
+      ```
+
+      请给我：
+      1. GitHub 仓库列表
+      2. 本地 Git 仓库位置
+      3. SSH 配置状态
+
+      如果需要配置访问，请告诉我需要什么。
+    working_dir: "."
+    allowed_tools:
+      - Bash
+      - Read
+    priority: 1
+
+  - id: "github-create-ai-rss-repo"
+    name: "创建 AI-RSS 项目仓库框架"
+    prompt: |
+      基于刚才的搜索结果，帮我创建一个新项目的框架：
+
+      项目名称：ai-rss-curator (AI驱动的RSS内容策展)
+
+      请创建以下文件结构：
+      ```
+      ai-rss-curator/
+      ├── README.md          # 项目说明
+      ├── docker-compose.yml  # 一键部署
+      ├── rss_ai_processor.py # AI处理核心
+      ├── config.yaml        # 配置文件
+      ├── requirements.txt   # Python依赖
+      └── docs/
+          ├── ARCHITECTURE.md  # 架构说明
+          └── DEPLOYMENT.md    # 部署指南
+      ```
+
+      每个文件请填充基础内容，基于Worker 2生成的报告。
+
+      重点：
+      1. README.md 要有清晰的项目介绍
+      2. docker-compose.yml 包含 RSSHub + Miniflux
+      3. rss_ai_processor.py 基于报告中的代码框架
+      4. 配置文件包含 API keys 占位符
+
+      完成后告诉我文件位置。
+    working_dir: "."
+    allowed_tools:
+      - Write
+      - Bash
+      - Read
+    priority: 2

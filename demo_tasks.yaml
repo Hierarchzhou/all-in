@@ -1,0 +1,53 @@
+# Claude 控制中心 - 演示任务配置
+# 这些任务执行速度快，用于演示并行效果
+
+max_instances: 3
+
+tasks:
+  - id: "demo-1"
+    name: "📂 列出Python文件"
+    prompt: "使用 Glob 工具列出当前目录所有 .py 文件，并统计数量"
+    working_dir: "."
+    allowed_tools:
+      - Glob
+    priority: 1
+
+  - id: "demo-2"
+    name: "📝 检查requirements.txt"
+    prompt: "读取 requirements.txt 文件并总结依赖项数量和主要类别"
+    working_dir: "."
+    allowed_tools:
+      - Read
+    priority: 1
+
+  - id: "demo-3"
+    name: "🔍 查找TODO注释"
+    prompt: "使用 Grep 在 .py 文件中查找所有 TODO 注释"
+    working_dir: "."
+    allowed_tools:
+      - Grep
+    priority: 1
+
+  - id: "demo-4"
+    name: "📊 Git状态"
+    prompt: "运行 'git status --short' 并总结未追踪文件数量"
+    working_dir: "."
+    allowed_tools:
+      - Bash
+    priority: 2
+
+  - id: "demo-5"
+    name: "📖 读取项目摘要"
+    prompt: "读取 PROJECT_SUMMARY.md 的前50行并提取核心信息"
+    working_dir: "."
+    allowed_tools:
+      - Read
+    priority: 2
+
+  - id: "demo-6"
+    name: "🔧 检查Python版本"
+    prompt: "运行 'python3 --version' 并报告版本号"
+    working_dir: "."
+    allowed_tools:
+      - Bash
+    priority: 3

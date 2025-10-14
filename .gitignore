@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# 虚拟环境
+venv/
+.venv/
+env/
+ENV/
+
+# 模型文件和检查点 (太大不上传)
+checkpoints/
+*.pth
+*.safetensors
+*.ckpt
+*.bin
+
+# IndexTTS (太大,建议用户自行下载)
+indextts/.venv/
+indextts/checkpoints/
+indextts/__pycache__/
+
+# 临时文件
+*_temp/
+*_voice_clone/
+*_indextts/
+*.wav
+*.mp3
+*.mp4
+*.webm
+
+# 系统文件
+.DS_Store
+Thumbs.db
+*.log
+
+# 敏感信息
+.env
+cookies.txt
+credentials.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Git LFS占位符的实际内容
+indextts/examples/*.wav
+indextts/examples/*.mp3

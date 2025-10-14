@@ -1,0 +1,143 @@
+# GitHub 搜索任务 - 两个 Worker 分别搜索不同主题
+
+max_instances: 2
+
+tasks:
+  - id: "github-search-1"
+    name: "GitHub搜索: AI信息筛选和价值判断工具"
+    prompt: |
+      【GitHub 搜索任务】
+
+      请帮我在 GitHub 上搜索和分析相关项目：
+
+      🎯 搜索主题：
+      - AI 信息筛选工具
+      - 自动化内容价值判断
+      - 智能信息聚合器
+      - AI 驱动的知识管理系统
+
+      📋 执行步骤：
+
+      ✅ 步骤1: 使用 Bash 工具执行 GitHub 搜索
+      命令示例：
+      gh search repos "AI content filter" --limit 10 --json name,description,url,stars,language --sort stars
+
+      或者使用其他搜索关键词：
+      - "AI information filter"
+      - "content curation AI"
+      - "intelligent aggregator"
+      - "AI knowledge management"
+
+      ✅ 步骤2: 分析搜索结果
+      筛选出最相关的 3-5 个项目
+
+      ✅ 步骤3: 详细评估每个项目
+      - 项目功能
+      - 技术栈
+      - 活跃度（star数、最近更新）
+      - 是否可用于我们的需求
+
+      ✅ 步骤4: 给出推荐方案
+
+      📊 输出格式：
+      # GitHub AI信息筛选工具搜索报告
+
+      ## 1. 搜索执行情况
+      - 使用的搜索关键词
+      - 找到的项目总数
+
+      ## 2. 推荐项目列表
+
+      ### 项目1: [名称]
+      - **GitHub**: [URL]
+      - **Stars**: ⭐ [数量]
+      - **语言**: [主要语言]
+      - **功能**: [简述]
+      - **适用性**: [评分1-5星]
+      - **推荐理由**: [说明]
+
+      ### 项目2: ...
+
+      ## 3. 最佳实践建议
+      - 如何基于这些项目实现"AI分身"功能
+      - 技术选型建议
+      - 实施路线图
+
+      ## 4. 下一步行动
+      - 优先级排序
+      - 具体操作步骤
+    working_dir: "."
+    allowed_tools:
+      - Bash
+      - Read
+    priority: 1
+
+  - id: "github-search-2"
+    name: "GitHub搜索: RSS聚合和内容管理工具"
+    prompt: |
+      【GitHub 搜索任务】
+
+      请帮我在 GitHub 上搜索和分析相关项目：
+
+      🎯 搜索主题：
+      - RSS 聚合器和阅读器
+      - 内容管理系统（CMS）
+      - 自动化发布工具（合规的）
+      - 个人知识库管理
+
+      📋 执行步骤：
+
+      ✅ 步骤1: 使用 Bash 工具执行 GitHub 搜索
+      命令示例：
+      gh search repos "RSS aggregator" --limit 10 --json name,description,url,stars,language --sort stars
+
+      或者使用其他搜索关键词：
+      - "RSS reader self-hosted"
+      - "content management system"
+      - "knowledge base personal"
+      - "feed aggregator"
+
+      ✅ 步骤2: 分析搜索结果
+      筛选出最相关的 3-5 个项目
+
+      ✅ 步骤3: 详细评估每个项目
+      - 项目功能
+      - 技术栈
+      - 活跃度（star数、最近更新）
+      - 是否适合个人部署
+
+      ✅ 步骤4: 给出推荐方案
+
+      📊 输出格式：
+      # GitHub RSS聚合和内容管理工具搜索报告
+
+      ## 1. 搜索执行情况
+      - 使用的搜索关键词
+      - 找到的项目总数
+
+      ## 2. 推荐项目列表
+
+      ### 项目1: [名称]
+      - **GitHub**: [URL]
+      - **Stars**: ⭐ [数量]
+      - **语言**: [主要语言]
+      - **功能**: [简述]
+      - **部署难度**: [简单/中等/复杂]
+      - **推荐理由**: [说明]
+
+      ### 项目2: ...
+
+      ## 3. 集成方案
+      - 如何结合 RSS 聚合 + AI 价值判断
+      - 工作流设计
+      - 技术架构建议
+
+      ## 4. 下一步行动
+      - 优先部署的工具
+      - 配置步骤
+      - 集成建议
+    working_dir: "."
+    allowed_tools:
+      - Bash
+      - Read
+    priority: 1

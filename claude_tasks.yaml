@@ -1,0 +1,94 @@
+# Claude Control Center - Task Configuration
+# 定义所有要并行执行的任务
+
+max_instances: 3  # 最大并行 Claude 实例数
+
+tasks:
+  - id: "analyze-audio-translator"
+    name: "分析音频翻译器"
+    prompt: |
+      分析 audio_translator.py 文件：
+      1. 总结架构设计
+      2. 列出核心功能
+      3. 识别潜在改进点
+      4. 检查错误处理
+    working_dir: "."
+    allowed_tools:
+      - Read
+      - Glob
+      - Grep
+    priority: 1
+
+  - id: "review-indextts"
+    name: "审查 IndexTTS 项目"
+    prompt: |
+      审查 indextts/ 目录：
+      1. 分析项目结构
+      2. 文档化组织方式
+      3. 检查配置文件
+      4. 识别关键模块
+    working_dir: "."
+    allowed_tools:
+      - Bash
+      - Read
+      - Glob
+    priority: 1
+
+  - id: "test-coverage"
+    name: "测试覆盖率分析"
+    prompt: |
+      分析测试文件 test_indextts_simple.py 和 test_indextts_quick.py：
+      1. 总结测试覆盖范围
+      2. 识别未测试功能
+      3. 建议新增测试用例
+      4. 评估测试质量
+    working_dir: "."
+    allowed_tools:
+      - Read
+      - Grep
+    priority: 2
+
+  - id: "dependency-check"
+    name: "依赖项检查"
+    prompt: |
+      检查 requirements.txt：
+      1. 列出所有依赖
+      2. 检查版本是否固定
+      3. 识别过时的包
+      4. 建议安全更新
+    working_dir: "."
+    allowed_tools:
+      - Read
+      - Bash
+    priority: 2
+
+  - id: "docs-review"
+    name: "文档审查"
+    prompt: |
+      审查所有 README 和 markdown 文件：
+      1. 列出现有文档
+      2. 识别文档缺口
+      3. 检查示例代码
+      4. 建议改进方向
+    working_dir: "."
+    allowed_tools:
+      - Read
+      - Glob
+      - Grep
+    priority: 3
+
+  - id: "code-quality"
+    name: "代码质量扫描"
+    prompt: |
+      扫描所有 Python 文件的代码质量：
+      1. 检查代码风格一致性
+      2. 识别重复代码
+      3. 查找潜在 bug
+      4. 建议重构机会
+    working_dir: "."
+    allowed_tools:
+      - Read
+      - Glob
+      - Grep
+      - Bash
+    priority: 3

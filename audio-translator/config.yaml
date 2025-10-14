@@ -1,0 +1,103 @@
+# Audio Translator - 主配置文件
+
+# 项目信息
+project:
+  name: "Audio Translator"
+  version: "1.0.0"
+  description: "AI-powered audio translation with voice cloning"
+
+# TTS 引擎配置
+tts_engines:
+  # Edge TTS (免费)
+  edge:
+    enabled: true
+    default_voice: "zh-CN-XiaoxiaoNeural"
+    rate: "+0%"
+    volume: "+0%"
+
+  # OpenAI TTS
+  openai:
+    enabled: true
+    model: "tts-1-hd"
+    voice: "alloy"
+    speed: 1.0
+
+  # ElevenLabs (声音克隆)
+  elevenlabs:
+    enabled: true
+    model: "eleven_multilingual_v2"
+    stability: 0.5
+    similarity_boost: 0.75
+
+  # IndexTTS (本地声音克隆)
+  indextts:
+    enabled: true
+    model_dir: "models/indextts/checkpoints"
+    config_path: "models/indextts/checkpoints/config.yaml"
+    device: "cuda"  # cuda 或 cpu
+    use_fp16: true
+    use_cuda_kernel: false
+    use_deepspeed: false
+
+# 语音识别配置
+transcription:
+  # Whisper 模型选择
+  whisper_model: "base"  # tiny, base, small, medium, large
+  language: "en"
+
+# 翻译配置
+translation:
+  # Claude 模型
+  claude_model: "claude-3-5-sonnet-20241022"
+  max_tokens: 8192
+
+  # 翻译提示词
+  prompt_template: |
+    请将以下英文翻译成中文。要求:
+    1. 自然流畅,适合语音播报
+    2. 保持原意,语气一致
+    3. 只返回翻译文本,不要任何解释
+
+    英文原文:
+    {text}
+
+# 输出配置
+output:
+  # 默认输出目录
+  dir: "outputs"
+
+  # 文件命名模式
+  # {name} - 原文件名, {engine} - TTS引擎, {timestamp} - 时间戳
+  filename_pattern: "{name}_{engine}"
+
+  # 是否保存中间文件
+  save_transcript: true
+  save_translation: true
+
+# 音频处理
+audio:
+  # 采样率
+  sample_rate: 24000
+
+  # 音频格式
+  output_format: "mp3"  # mp3, wav, flac
+
+  # 音频质量 (仅用于 mp3)
+  bitrate: "192k"
+
+# 性能配置
+performance:
+  # 批处理大小
+  batch_size: 1
+
+  # 并发处理数
+  max_workers: 1
+
+  # GPU 内存优化
+  optimize_memory: true
+
+# 日志配置
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "audio-translator.log"
